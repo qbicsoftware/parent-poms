@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>life.qbic</groupId>
-		<artifactId>lib-parent-pom</artifactId>
+		<artifactId>parent-pom</artifactId>
 		<version>1.0.0</version>
 	</parent>
 	<groupId>life.qbic</groupId>
@@ -13,7 +13,7 @@
 	<!-- avoid using SNAPSHOT releases in parent POMs to avoid inconsistencies across local/remote repositories -->
 	<version>1.0.0</version>
 	<name>Parent POM for all QBiC command-line interface (CLI) tools</name>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
 	<repositories>

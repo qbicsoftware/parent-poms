@@ -13,7 +13,7 @@
 	<!-- avoid using SNAPSHOT releases in parent POMs to avoid inconsistencies across local/remote repositories -->
 	<version>1.0.0</version>
 	<name>Parent POM for all QBiC libraries</name>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
 	<repositories>
