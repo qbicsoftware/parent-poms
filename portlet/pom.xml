@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>life.qbic</groupId>
 	<artifactId>portlet-parent-pom</artifactId>
-	<!-- avoid using SNAPSHOT releases to avoid inconsistencies across local/remote repositories -->
+	<!-- avoid using SNAPSHOT releases in parent POMs to avoid inconsistencies across local/remote repositories -->
 	<version>1.0.0</version>
 	<name>Parent POM for all QBiC portlets</name>
 	<packaging>pom</packaging>
