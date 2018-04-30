@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project 
+	xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>life.qbic</groupId>
+		<artifactId>lib-parent-pom</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<groupId>life.qbic</groupId>
+	<artifactId>cli-parent-pom</artifactId>
+	<!-- avoid using SNAPSHOT releases to avoid inconsistencies across local/remote repositories -->
+	<version>1.0.0</version>
+	<name>Parent POM for all QBiC command-line interface (CLI) tools</name>
+	<packaging>pom</packaging>
+	
+	<dependencies>
+		<dependency>
+			<groupId>info.picocli</groupId>
+			<artifactId>picocli</artifactId>
+			<version>3.0.0-beta-2</version>
+		</dependency>
+	</dependencies>
+</project>
