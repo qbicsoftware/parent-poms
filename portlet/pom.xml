@@ -22,7 +22,7 @@
 		<liferay.maven.plugin.version>6.2.5</liferay.maven.plugin.version>
 	</properties>
 	<dependencies>
-		<!-- It should be enough to iimport the "bill of materials" (BOM) and be done with it, but
+		<!-- It should be enough to import the "bill of materials" (BOM) and be done with it, but
 		     vaadin-maven-plugin checks its version by checking the version of the vaadin-shared artifact.
 			 Failing to include an artifact named vaadin-shared with version 7.1 or superior will break the build.
 		     see line 65: https://github.com/vaadin/maven-plugin/blob/7.7.8/src/main/java/com/vaadin/integration/maven/AbstractThemeMojo.java -->
