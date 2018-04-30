@@ -13,5 +13,5 @@
 	<!-- avoid using SNAPSHOT releases to avoid inconsistencies across local/remote repositories -->
 	<version>1.0.0</version>
 	<name>Parent POM for all QBiC libraries</name>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 </project>
