@@ -14,7 +14,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-	<!-- dependencies used across all QBiC releases (libraries, command-line tools, portlets, etc.) -->
+	<!-- dependencies used across ALL QBiC releases (libraries, command-line tools, portlets, etc.) -->
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>

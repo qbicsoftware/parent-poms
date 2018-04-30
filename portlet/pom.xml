@@ -21,6 +21,21 @@
 		<liferay.version>6.2.5</liferay.version>
 		<liferay.maven.plugin.version>6.2.5</liferay.maven.plugin.version>
 	</properties>
+
+	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
+	<repositories>
+		<repository>
+			<id>nexus-snapshots</id>
+			<name>QBiC Snapshots</name>
+			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-snapshots</url>
+		</repository>
+		<repository>
+			<id>nexus-releases</id>
+			<name>QBiC Releases</name>
+			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-releases</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<!-- It should be enough to import the "bill of materials" (BOM) and be done with it, but
 		     vaadin-maven-plugin checks its version by checking the version of the vaadin-shared artifact.
