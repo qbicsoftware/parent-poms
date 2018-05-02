@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>life.qbic</groupId>
-		<artifactId>parent-pom</artifactId>
+		<artifactId>vaadin-parent-pom</artifactId>
 		<version>1.0.0</version>
 	</parent>
 	<groupId>life.qbic</groupId>
@@ -14,14 +14,7 @@
 	<version>1.0.0</version>
 	<name>Parent POM for all QBiC portlets</name>
 	<packaging>pom</packaging>
-	<properties>
-		<jetty.plugin.version>9.4.9.v20180320</jetty.plugin.version>
-		<vaadin.version>7.7.8</vaadin.version>
-		<vaadin.plugin.version>7.7.8</vaadin.plugin.version>
-		<liferay.version>6.2.5</liferay.version>
-		<liferay.maven.plugin.version>6.2.5</liferay.maven.plugin.version>
-	</properties>
-
+	
 	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
 	<repositories>
 		<repository>
@@ -53,53 +46,6 @@
 	</repositories>
 
 	<dependencies>
-		<!-- It should be enough to import the "bill of materials" (BOM) and be done with it, but
-		     vaadin-maven-plugin checks its version by checking the version of the vaadin-shared artifact.
-			 Failing to include an artifact named vaadin-shared with version 7.1 or superior will break the build.
-		     see line 65: https://github.com/vaadin/maven-plugin/blob/7.7.8/src/main/java/com/vaadin/integration/maven/AbstractThemeMojo.java -->
-			 
-		<!-- Vaadin dependencies -->
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-shared</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-server</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-push</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-widgets</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-client</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-client-compiler</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-client-compiled</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-themes</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
-
 		<!-- Liferay dependencies -->
 		<dependency>
 			<groupId>javax.portlet</groupId>
