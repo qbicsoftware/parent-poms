@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>life.qbic</groupId>
 	<artifactId>portlet-parent-pom</artifactId>
-	<!-- avoid using SNAPSHOT releases in parent POMs to avoid inconsistencies across local/remote repositories -->
+	<!-- SNAPSHOTS should be avoided, but core-ui-lib is evolving so fast and it is practical to leave it as a SNAPSHOT -->
 	<version>1.0.0</version>
 	<name>Parent POM for all QBiC portlets</name>
 	<packaging>pom</packaging>
@@ -108,10 +108,11 @@
 			<artifactId>liferayandvaadinhelpers</artifactId>
 			<version>1.1.2</version>
 		</dependency>
+		<!-- FIXME: include when v0.1.0 is released!!! -->
 		<dependency>
 			<groupId>life.qbic</groupId>
 			<artifactId>core-ui-lib</artifactId>
-			<version>0.1.0-SNAPSHOT</version>
+			<version>0.1.0</version>
 		</dependency>
 		<!-- database (needed by Liferay) -->
 		<dependency>
