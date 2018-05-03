@@ -79,8 +79,39 @@
 		</dependency>
 		<dependency>
 			<groupId>life.qbic.openbis</groupId>
+			<artifactId>csid-base</artifactId>
+			<version>13.04.8</version>
+		</dependency>
+		<dependency>
+			<groupId>life.qbic.openbis</groupId>
+			<artifactId>dss_client</artifactId>
+			<version>3-S253.0</version>
+		</dependency>
+		<dependency>
+			<groupId>life.qbic.openbis</groupId>
+			<artifactId>openbis_api</artifactId>
+			<version>3-S253.0</version>
+		</dependency>
+		<dependency>
+			<groupId>life.qbic.openbis</groupId>
+			<artifactId>spring</artifactId>
+			<version>13.04.8</version>
+		</dependency>
+		<dependency>
+			<groupId>life.qbic.openbis</groupId>
+			<artifactId>stream-supporting-httpinvoker</artifactId>
+			<version>13.04.8</version>
+		</dependency>
+		<!-- utils -->
+		<dependency>
+			<groupId>life.qbic.openbis</groupId>
 			<artifactId>liferayandvaadinhelpers</artifactId>
 			<version>1.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>life.qbic</groupId>
+			<artifactId>core-ui-lib</artifactId>
+			<version>0.1.0-SNAPSHOT</version>
 		</dependency>
 		<!-- database (needed by Liferay) -->
 		<dependency>
