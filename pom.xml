@@ -5,8 +5,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>life.qbic</groupId>
 	<artifactId>parent-pom</artifactId>
-	<!-- avoid using SNAPSHOT releases in parent POMs to avoid inconsistencies across local/remote repositories -->
-	<version>1.0.0</version>
+	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
+	<version>1.0.1-SNAPSHOT</version>
 	<name>Parent POM for all QBiC software</name>
 	<packaging>pom</packaging>
 	<properties>
@@ -14,6 +14,9 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+	<prerequisites>
+		<maven>3</maven>
+	</prerequisites>
 	<!-- dependencies used across ALL QBiC releases (libraries, command-line tools, portlets, etc.) -->
 	<dependencies>
 		<dependency>

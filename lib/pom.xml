@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>life.qbic</groupId>
 		<artifactId>parent-pom</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>life.qbic</groupId>
 	<artifactId>lib-parent-pom</artifactId>
-	<!-- avoid using SNAPSHOT releases in parent POMs to avoid inconsistencies across local/remote repositories -->
-	<version>1.0.0</version>
+	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
+	<version>1.0.1-SNAPSHOT</version>
 	<name>Parent POM for all QBiC libraries</name>
 	<packaging>pom</packaging>
 
