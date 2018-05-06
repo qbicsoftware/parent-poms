@@ -53,53 +53,67 @@
 	</repositories>
 
 	<dependencies>
-		<!-- It should be enough to import the "bill of materials" (BOM) and be done with it, but
-		     vaadin-maven-plugin checks its version by checking the version of the vaadin-shared artifact.
-			 Failing to include an artifact named vaadin-shared with version 7.1 or superior will break the build.
-		     see line 65: https://github.com/vaadin/maven-plugin/blob/7.7.8/src/main/java/com/vaadin/integration/maven/AbstractThemeMojo.java -->
-			 
 		<!-- Vaadin dependencies -->
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-shared</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-server</artifactId>
 			<version>${vaadin.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-push</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-widgets</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-client</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-client-compiler</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
+
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-client-compiled</artifactId>
 			<version>${vaadin.version}</version>
 		</dependency>
+		<!-- Needed when using the widgetset optimizer (custom ConnectorBundleLoaderFactory).
+			For widgetset compilation, vaadin-client-compiler is automatically added
+			on the compilation classpath by vaadin-maven-plugin so normally there is
+			no need for an explicit dependency. -->
+		<!-- <dependency> <groupId>com.vaadin</groupId> <artifactId>vaadin-client-compiler</artifactId>
+			<scope>provided</scope> </dependency> -->
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-client</artifactId>
+			<version>${vaadin.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
 			<version>${vaadin.version}</version>
 		</dependency>
+
+		<!-- Liferay dependencies -->
+		<dependency>
+			<groupId>javax.portlet</groupId>
+			<artifactId>portlet-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>portal-service</artifactId>
+			<version>${liferay.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>util-java</artifactId>
+			<version>${liferay.version}</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
+
 	<build>
 		<plugins>
 			<!-- As we are doing "inplace" GWT compilation, ensure the widgetset -->
