@@ -12,7 +12,8 @@
 	<artifactId>cli-parent-pom</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
 	<version>1.0.1-SNAPSHOT</version>
-	<name>Parent POM for all QBiC command-line interface (CLI) tools</name>
+	<name>CLI parent POM</name>
+	<description>Parent POM for all QBiC command-line interface (CLI) tools.</description>
 	<packaging>pom</packaging>
 
 	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
@@ -46,6 +47,7 @@
 	</repositories>
 
 	<dependencies>
+		<!-- lib to parse arguments -->
 		<dependency>
 			<groupId>info.picocli</groupId>
 			<artifactId>picocli</artifactId>
