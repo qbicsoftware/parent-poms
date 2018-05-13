@@ -1,5 +1,6 @@
 # QBiC Parent POMs
 [![Build Status](https://travis-ci.org/qbicsoftware/parent-poms.svg?branch=master)](https://travis-ci.org/qbicsoftware/parent-poms)
+
 This repository contains no code. It only contains the parent project object model (POM) files we use across all of our software.
 
 ## Motivation
