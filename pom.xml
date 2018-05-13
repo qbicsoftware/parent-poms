@@ -286,7 +286,7 @@
 		<profile>
 			<id>development-build</id>
 			<activation>
-				<activeByDefault>true</activeByDefault>
+				<activeByDefault>false</activeByDefault>
 			</activation>
 			<build>
 				<plugins>
@@ -296,18 +296,15 @@
 						<version>3.0.0-M1</version>
 						<executions>
 							<execution>
-								<id>enforce-property</id>
+								<id>enforce-no-releases</id>
 								<goals>
 									<goal>enforce</goal>
 								</goals>
 								<configuration>
 									<rules>
-										<requireProperty>
-											<property>project.version</property>
-											<message>ERROR: Project version must be specified.</message>
-											<regex>.+-SNAPSHOT$</regex>
-											<regexMessage>SEVERE: Project version for development versions must end in "-SNAPSHOT". If you are sure that you want to override this, execute maven enabling the 'release-build' profile. Provided version: ${project.version}</regexMessage>
-										</requireProperty>
+										<requireSnapshotVersion>
+											<message>No releases allowed. Version must end with "-SNAPSHOT". Check that the &lt;version&gt; tag contains a non-release version string.</message>
+										</requireSnapshotVersion>
 									</rules>
 									<fail>true</fail>
 								</configuration>
@@ -330,18 +327,15 @@
 						<version>3.0.0-M1</version>
 						<executions>
 							<execution>
-								<id>enforce-property</id>
+								<id>enforce-no-snapshots</id>
 								<goals>
 									<goal>enforce</goal>
 								</goals>
 								<configuration>
 									<rules>
-										<requireProperty>
-											<property>project.version</property>
-											<message>ERROR: Project version must be specified.</message>
-											<regex>.+(?&lt;!(-SNAPSHOT))$</regex>
-											<regexMessage>"ERROR: You have enabled the 'release-build' profile, but provided a version with a "-SNAPSHOT" suffix. Provided version: ${project.version}</regexMessage>
-										</requireProperty>
+										<requireReleaseVersion>
+											<message>Only release versions are allowed. The suffix "-SNAPSHOT" is not allowed in release versions. Check that the &lt;version&gt; contains a release version string.</message>
+										</requireReleaseVersion>
 									</rules>
 									<fail>true</fail>
 								</configuration>
