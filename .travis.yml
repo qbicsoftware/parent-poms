@@ -17,7 +17,7 @@ branches:
   - master
   - development
 install: true
-script: ./.travis.sh pom.xml && ./.travis.sh cli/pom.xml && ./.travis.sh portal/pom.xml && ./.travis.sh portal/portlet/pom.xml
+script: "chmod +x .travis.sh && ./.travis.sh pom.xml && ./.travis.sh cli/pom.xml && ./.travis.sh portal/pom.xml && ./.travis.sh portal/portlet/pom.xml"
 env:
   global:
   - secure: ZruVrOJT1r4pXcESg6lldRsQUBexPCHb1joqSS7TQglLW8UQ/uV6utpIrb98RuHoy2x91KqGtkihCnkRmwHPEfFICKqUcYntIroRGLhC3aC6iRKjsbxNF1XLwn8pUNQfRk193eB3KBLUUSoiPTMKwqfbUk5McPmgGlzM5fTx8CJgdOddJzhB1WzW+L98+CKeWMTYZkaDsCASsMzM23faWLCHEjAGJRgFaeoinUxWALq1+zSuHFWevm4kDEXMJyoIw/e7OibkhmjDZF3r7e0xbTqWU/qZCwu+9jLKwaBnUD6usVWQQT1mEjvmT3D75HS0oy9AThtsbIYC3E5KdbJEg4tEH80mTSFFLN+mbTFiCwfny3u87xxK+uriV2QhUskxp3wXZ8TbNv7S6ygb0uLbmrgSD0j1likwG2NTUTDNe09yYbBOiIWAZ4LNGvgpqfMHsmbuLCjBpEhGJk57CzvtryL1yFqhWwxHgdc5Z4mYV8gN9jr64xOUKYpiu4Zbg8UHfEtxggXkkukQrson5A0c2DCubDZtLFTZMDjSOuw3RSXhotF92k0OfBLFI0wRmeKpMSud+1Etswhqv3x188TDlzUDHkk5nEMWfQBlnQP6L3DFlcznpt5wwGKgJGtsXwtHUq3iaRn84C+B7zw8IvK5tlp0mQM6lgh9v29tY5581BY=
