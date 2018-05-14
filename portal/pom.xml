@@ -3,13 +3,11 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
 	<parent>
 		<groupId>life.qbic</groupId>
 		<artifactId>parent-pom</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-
 	<groupId>life.qbic</groupId>
 	<artifactId>portal-parent-pom</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
@@ -17,16 +15,6 @@
 	<name>Portal parent POM</name>
 	<description>Parent POM for all QBiC software that depends on a Liferay portal and Vaadin.</description>
 	<packaging>pom</packaging>
-
-	<properties>
-		<vaadin.version>7.7.8</vaadin.version>
-		<vaadin.plugin.version>7.7.8</vaadin.plugin.version>
-		<liferay.version>6.2.5</liferay.version>
-		<liferay.maven.plugin.version>6.2.5</liferay.maven.plugin.version>
-		<portlet.api.version>2.0</portlet.api.version>
-		<servlet.api.version>3.0.1</servlet.api.version>
-	</properties>
-
 	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
 	<repositories>
 		<repository>
@@ -57,60 +45,56 @@
 		</repository>
 	</repositories>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>life.qbic</groupId>
+				<artifactId>openbis-client-lib</artifactId>
+				<version>1.1.4-SNAPSHOT</version>
+			</dependency>
+			<!-- Access to our custom databases (portlets use direct JDBC to access data for now),
+				but we will create a client library that portlets will use -->
+			<dependency>
+				<groupId>org.mariadb.jdbc</groupId>
+				<artifactId>mariadb-java-client</artifactId>
+				<version>2.0.2</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
-		<!-- Vaadin dependencies -->
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-server</artifactId>
-			<version>${vaadin.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-client-compiled</artifactId>
-			<version>${vaadin.version}</version>
 		</dependency>
-		<!-- Needed when using the widgetset optimizer (custom ConnectorBundleLoaderFactory).
-			For widgetset compilation, vaadin-client-compiler is automatically added
-			on the compilation classpath by vaadin-maven-plugin so normally there is
-			no need for an explicit dependency. -->
-		<!-- <dependency> <groupId>com.vaadin</groupId> <artifactId>vaadin-client-compiler</artifactId>
-			<scope>provided</scope> </dependency> -->
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-client</artifactId>
-			<version>${vaadin.version}</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
-			<version>${vaadin.version}</version>
 		</dependency>
-
 		<!-- Liferay dependencies (provided by the servlet container) -->
 		<dependency>
 			<groupId>javax.portlet</groupId>
 			<artifactId>portlet-api</artifactId>
-			<version>${portlet.api.version}</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>${servlet.api.version}</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>portal-service</artifactId>
-			<version>${liferay.version}</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>util-java</artifactId>
-			<version>${liferay.version}</version>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 

@@ -46,14 +46,14 @@
 		</repository>
 	</repositories>
 
-	<dependencies>
-		<!-- all QBiC portlets need the utilities contained in portal-utils-lib, 
-			 but it is up to the portlet to decide which other dependencies will be used
-			 (e.g., openBIS, MySQL driver for QBiC custom, internal databases, etc.) -->
-		<dependency>
-			<groupId>life.qbic</groupId>
-			<artifactId>portal-utils-lib</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>life.qbic</groupId>
+				<artifactId>portal-utils-lib</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 </project>
