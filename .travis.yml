@@ -15,7 +15,7 @@ notifications:
 branches:
   only:
   - master
-  - development
+  - testing
 install: true
 script: "chmod +x .travis.sh && ./.travis.sh pom.xml && ./.travis.sh cli/pom.xml && ./.travis.sh portal/pom.xml && ./.travis.sh portal/portlet/pom.xml"
 env:
