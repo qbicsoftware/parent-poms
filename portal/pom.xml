@@ -44,25 +44,19 @@
 			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-releases</url>
 		</repository>
 	</repositories>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>life.qbic</groupId>
-				<artifactId>openbis-client-lib</artifactId>
-				<version>1.1.4-SNAPSHOT</version>
-			</dependency>
-			<!-- Access to our custom databases (portlets use direct JDBC to access data for now),
-				but we will create a client library that portlets will use -->
-			<dependency>
-				<groupId>org.mariadb.jdbc</groupId>
-				<artifactId>mariadb-java-client</artifactId>
-				<version>2.0.2</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
 	<dependencies>
+		<!-- QBiC dependencies -->
+		<dependency>
+			<groupId>life.qbic</groupId>
+			<artifactId>openbis-client-lib</artifactId>
+		</dependency>
+		<!-- Access to our custom databases (portlets use direct JDBC to access data for now),
+				but we will create a client library that portlets will use -->
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+		</dependency>
+		<!-- Vaadin -->
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-server</artifactId>
@@ -97,7 +91,6 @@
 			<artifactId>util-java</artifactId>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<!-- As we are doing "inplace" GWT compilation, ensure the widgetset -->

@@ -46,14 +46,11 @@
 		</repository>
 	</repositories>
 
-	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>life.qbic</groupId>
 				<artifactId>portal-utils-lib</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
 			</dependency>
 		</dependencies>
-	</dependencyManagement>
 
 </project>

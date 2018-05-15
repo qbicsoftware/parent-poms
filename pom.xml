@@ -16,15 +16,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-
 		<log4j.version>2.11.0</log4j.version>
-
 		<vaadin.version>7.7.8</vaadin.version>
 		<liferay.version>6.2.5</liferay.version>
-		
 		<vaadin.plugin.version>7.7.8</vaadin.plugin.version>
 		<liferay.maven.plugin.version>6.2.5</liferay.maven.plugin.version>
-
 		<powermock.version>2.0.0-beta.5</powermock.version>
 		<jetty.plugin.version>9.4.10.v20180503</jetty.plugin.version>
 	</properties>
@@ -37,6 +33,24 @@
 	     but we centralize the control over which version is used -->
 	<dependencyManagement>
 		<dependencies>
+			<!-- Internal QBiC dependencies -->
+			<dependency>
+				<groupId>life.qbic</groupId>
+				<artifactId>openbis-client-lib</artifactId>
+				<version>1.1.4-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>life.qbic</groupId>
+				<artifactId>portal-utils-lib</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<!-- Access to QBiC internal databases (portlets use direct JDBC to access data for now),
+				 but we will create a client library that portlets will use -->
+			<dependency>
+				<groupId>org.mariadb.jdbc</groupId>
+				<artifactId>mariadb-java-client</artifactId>
+				<version>2.0.2</version>
+			</dependency>
 			<!-- Vaadin offers a bill of materials including all of the vaadin artifacts -->
 			<dependency>
 				<groupId>com.vaadin</groupId>
