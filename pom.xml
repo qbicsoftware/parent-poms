@@ -3,7 +3,6 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>life.qbic</groupId>
 	<artifactId>parent-pom</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
@@ -11,7 +10,6 @@
 	<name>Parent POM</name>
 	<description>Parent POM for all QBiC software</description>
 	<packaging>pom</packaging>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -24,11 +22,9 @@
 		<powermock.version>2.0.0-beta.5</powermock.version>
 		<jetty.plugin.version>9.4.10.v20180503</jetty.plugin.version>
 	</properties>
-
 	<prerequisites>
 		<maven>3</maven>
 	</prerequisites>
-
 	<!-- we define dependencies in the dependencyManagement section so child poms have control over WHICH dependencies they use,
 	     but we centralize the control over which version is used -->
 	<dependencyManagement>
@@ -40,10 +36,10 @@
 				<version>1.1.4-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-      				<groupId>life.qbic.openbis</groupId>
-      				<artifactId>openbis_api</artifactId>
-      				<version>3-S253.0</version>
-    			</dependency>
+				<groupId>life.qbic.openbis</groupId>
+				<artifactId>openbis_api</artifactId>
+				<version>3-S253.0</version>
+			</dependency>
 			<dependency>
 				<groupId>life.qbic</groupId>
 				<artifactId>portal-utils-lib</artifactId>
@@ -65,10 +61,10 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-     				<groupId>com.vaadin.addon</groupId>
-     				<artifactId>vaadin-charts</artifactId>
-     				<version>3.2.0</version>
-   			</dependency>
+				<groupId>com.vaadin.addon</groupId>
+				<artifactId>vaadin-charts</artifactId>
+				<version>3.2.0</version>
+			</dependency>
 			<!-- Liferay -->
 			<dependency>
 				<groupId>com.liferay.portal</groupId>
@@ -94,7 +90,7 @@
 				<artifactId>javax.servlet-api</artifactId>
 				<version>3.0.1</version>
 				<scope>provided</scope>
-			</dependency>		
+			</dependency>
 			<!-- command-line argument parsing -->
 			<dependency>
 				<groupId>info.picocli</groupId>
@@ -160,9 +156,14 @@
 				<version>0.40</version>
 				<scope>test</scope>
 			</dependency>
+			<dependency>
+  				<groupId>com.github.stefanbirkner</groupId>
+  				<artifactId>system-rules</artifactId>
+  				<version>1.17.2</version>
+  				<scope>test</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 	<!-- dependencies shared across all QBiC artifacts -->
 	<dependencies>
 		<dependency>
@@ -198,7 +199,6 @@
 			<artifactId>truth</artifactId>
 		</dependency>
 	</dependencies>
-
 	<repositories>
 		<repository>
 			<id>liferay-releases</id>
@@ -210,7 +210,6 @@
 			<url>http://maven.vaadin.com/vaadin-addons</url>
 		</repository>
 	</repositories>
-
 	<distributionManagement>
 		<repository>
 			<uniqueVersion>true</uniqueVersion>
@@ -225,14 +224,12 @@
 			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
-
 	<pluginRepositories>
 		<pluginRepository>
 			<id>liferay-releases-plugins</id>
 			<url>https://repository.liferay.com/nexus/content/repositories/liferay-public-releases/com/liferay/portal/</url>
 		</pluginRepository>
 	</pluginRepositories>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -381,7 +378,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-
 		<resources>
 			<resource>
 				<filtering>true</filtering>
@@ -401,7 +397,6 @@
 			</resource>
 		</resources>
 	</build>
-
 	<reporting>
 		<plugins>
 			<plugin>
@@ -421,7 +416,6 @@
 			</plugin>
 		</plugins>
 	</reporting>
-
 	<profiles>
 		<profile>
 			<id>development-build</id>
