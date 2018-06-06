@@ -47,11 +47,9 @@
 	</repositories>
 
 	<dependencies>
-		<!-- lib to parse arguments -->
 		<dependency>
 			<groupId>info.picocli</groupId>
 			<artifactId>picocli</artifactId>
-			<version>3.0.0-beta-2</version>
 		</dependency>
 	</dependencies>
 </project>
