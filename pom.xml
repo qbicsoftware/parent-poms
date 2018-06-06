@@ -378,6 +378,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		
 		<resources>
 			<resource>
 				<filtering>true</filtering>
@@ -387,15 +388,18 @@
 				<filtering>true</filtering>
 				<directory>src/main/webapp</directory>
 			</resource>
-			<resource>
+		</resources>
+		<testResources>
+			<testResource>
 				<filtering>true</filtering>
 				<directory>src/test/resources</directory>
-			</resource>
-			<resource>
+			</testResource>
+			<testResource>
 				<filtering>true</filtering>
 				<directory>src/test/webapp</directory>
-			</resource>
-		</resources>
+			</testResource>
+		</testResources>
+
 	</build>
 	<reporting>
 		<plugins>
