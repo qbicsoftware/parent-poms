@@ -47,7 +47,6 @@
 	</repositories>
 
 	<dependencies>
-		<!-- lib to parse arguments -->
 		<dependency>
 			<groupId>info.picocli</groupId>
 			<artifactId>picocli</artifactId>

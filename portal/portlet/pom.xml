@@ -15,7 +15,6 @@
 	<name>Portlet parent POM</name>
 	<description>Parent POM for all QBiC software that depends on a Liferay portal and Vaadin.</description>
 	<packaging>pom</packaging>
-
 	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
 	<repositories>
 		<repository>
@@ -45,15 +44,11 @@
 			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-releases</url>
 		</repository>
 	</repositories>
-
 	<dependencies>
-		<!-- all QBiC portlets need the utilities contained in portal-utils-lib, 
-			 but it is up to the portlet to decide which other dependencies will be used
-			 (e.g., openBIS, MySQL driver for QBiC custom, internal databases, etc.) -->
 		<dependency>
 			<groupId>life.qbic</groupId>
 			<artifactId>portal-utils-lib</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
+
