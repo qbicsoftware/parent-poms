@@ -280,7 +280,8 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>${jetty.plugin.version}</version>
 				<configuration>
-					<scanIntervalSeconds>2</scanIntervalSeconds>
+					<!-- disable hot redeploy -->
+					<scanIntervalSeconds>0</scanIntervalSeconds>
 					<useProvidedScope>true</useProvidedScope>
 					<stopPort>8005</stopPort>
 					<stopKey>STOP</stopKey>
