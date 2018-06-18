@@ -21,10 +21,8 @@
 		<liferay.maven.plugin.version>6.2.5</liferay.maven.plugin.version>
 		<powermock.version>2.0.0-beta.5</powermock.version>
 		<jetty.plugin.version>9.4.10.v20180503</jetty.plugin.version>
+		<jetty.scanIntervalSeconds>2</jetty.scanIntervalSeconds>
 	</properties>
-	<prerequisites>
-		<maven>3</maven>
-	</prerequisites>
 	<!-- we define dependencies in the dependencyManagement section so child poms have control over WHICH dependencies they use,
 	     but we centralize the control over which version is used -->
 	<dependencyManagement>
@@ -280,8 +278,21 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>${jetty.plugin.version}</version>
 				<configuration>
-					<!-- disable hot redeploy -->
-					<scanIntervalSeconds>0</scanIntervalSeconds>
+					<!-- Jetty's hot deploy enabled has been enabled by default!
+
+						 If you want to disable jetty's hot deploy feature, activate the 'jetty-cold-deploy' profile
+						 via the command line:
+
+						 mvn -P jetty-cold-deploy
+
+						 Or, alternatively, you can change your settings.xml to permanently activate this profile. 
+						 
+						 For more information on how to permanently activate a property, 
+						 see: https://maven.apache.org/settings.html#Profiles 
+						 
+						 For more information about the origin of this long comment, see: 
+						 https://github.com/qbicsoftware/parent-poms/issues/4 -->
+					<scanIntervalSeconds>${jetty.scanIntervalSeconds}</scanIntervalSeconds>
 					<useProvidedScope>true</useProvidedScope>
 					<stopPort>8005</stopPort>
 					<stopKey>STOP</stopKey>
@@ -294,7 +305,7 @@
 							<goal>start</goal>
 						</goals>
 						<configuration>
-							<scanIntervalSeconds>0</scanIntervalSeconds>
+							<scanIntervalSeconds>${jetty.scanIntervalSeconds}</scanIntervalSeconds>
 							<daemon>true</daemon>
 						</configuration>
 					</execution>
@@ -378,6 +389,26 @@
 					<check />
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.0.0-M2</version>
+				<executions>
+					<execution>
+						<id>enforce-maven</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireMavenVersion>
+									<version>[3,)</version>
+								</requireMavenVersion>
+							</rules>    
+						</configuration>
+					</execution>
+				</executions>
+      		</plugin>
 		</plugins>
 		
 		<resources>
@@ -407,7 +438,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>3.0.0-M2</version>
 				<configuration>
 					<configLocation>google_checks.xml</configLocation>
 				</configuration>
@@ -422,6 +453,7 @@
 		</plugins>
 	</reporting>
 	<profiles>
+		<!-- enforces that version strings are development versions, i.e., they contain the suffix -SNAPSHOT -->
 		<profile>
 			<id>development-build</id>
 			<activation>
@@ -432,7 +464,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-enforcer-plugin</artifactId>
-						<version>3.0.0-M1</version>
+						<version>3.0.0-M2</version>
 						<executions>
 							<execution>
 								<id>enforce-no-releases</id>
@@ -454,6 +486,7 @@
 			</build>
 		</profile>
 		<profile>
+			<!-- enforces that version strings are release versions, i.e., they do not contain the suffix -SNAPSHOT -->
 			<id>release-build</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
@@ -463,7 +496,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-enforcer-plugin</artifactId>
-						<version>3.0.0-M1</version>
+						<version>3.0.0-M2</version>
 						<executions>
 							<execution>
 								<id>enforce-no-snapshots</id>
@@ -483,6 +516,14 @@
 					</plugin>
 				</plugins>
 			</build>
+		</profile>
+		<profile>
+			<!-- For more information about the origin of this profile, see: 
+				 https://github.com/qbicsoftware/parent-poms/issues/4 -->
+			<id>jetty-cold-deploy</id>
+			<properties>
+				<jetty.scanIntervalSeconds>0</jetty.scanIntervalSeconds>
+			</properties>
 		</profile>
 	</profiles>
 </project>
