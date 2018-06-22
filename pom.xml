@@ -48,6 +48,11 @@
 				<artifactId>core-utils-lib</artifactId>
 				<version>1.0.0-SNAPSHOT</version>
 			</dependency>
+			<dependency>
+				<groupId>life.qbic</groupId>
+				<artifactId>javafx-utils-lib</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
 			<!-- Access to QBiC internal databases (portlets use direct JDBC to access data for now),
 				 but we will create a client library that portlets will use -->
 			<dependency>
