@@ -52,8 +52,8 @@
 			<artifactId>picocli</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.github.stefanbirkner</groupId>
-			<artifactId>system-rules</artifactId>
+			<groupId>life.qbic</groupId>
+			<artifactId>core-utils-lib</artifactId>
 		</dependency>
 	</dependencies>
 </project>
