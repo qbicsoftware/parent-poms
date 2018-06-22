@@ -45,17 +45,6 @@
 		</repository>
 	</repositories>
 	<dependencies>
-		<!-- QBiC dependencies -->
-		<dependency>
-			<groupId>life.qbic</groupId>
-			<artifactId>openbis-client-lib</artifactId>
-		</dependency>
-		<!-- Access to our custom databases (portlets use direct JDBC to access data for now),
-				but we will create a client library that portlets will use -->
-		<dependency>
-			<groupId>org.mariadb.jdbc</groupId>
-			<artifactId>mariadb-java-client</artifactId>
-		</dependency>
 		<!-- Vaadin -->
 		<dependency>
 			<groupId>com.vaadin</groupId>
