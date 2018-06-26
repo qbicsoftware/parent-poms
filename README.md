@@ -10,7 +10,7 @@ QBiC relies on Liferay and Vaadin for its front-end and including these dependen
 The hierarchy of the parent POMs reflects how QBiC structures its software: 
 
   - All QBiC software modules belong to a parent organization (i.e., `groupId=life.qbic`). `/pom.xml` is the parent POM for QBiC's java-based solutions. 
-  - Command-line interface (CLI) tools require parsing arguments. This dependency is included in  `/cli/pom.xml`.
+  - Command-line interface (CLI) tools require parsing arguments. This dependency is included in  `/cli/pom.xml`. This is the same for artifacts of type `service` and `gui`. 
   - Libraries depending on portal technlogies such as Liferay (e.g., the already deprecated `liferayandvaadinutls`) use `/portal/pom.xml` as a parent POM. 
   - Vaadin portlets use `/portal/portlet/pom.xml` as a parent POM.
 
