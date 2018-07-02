@@ -73,6 +73,21 @@
 				<artifactId>vaadin-charts</artifactId>
 				<version>3.2.0</version>
 			</dependency>
+			<dependency>
+            	<groupId>org.vaadin.addons</groupId>
+            	<artifactId>vaadin-grid-util</artifactId>
+            	<version>1.0.0</version>
+			</dependency>
+       		<dependency>
+           		<groupId>org.docx4j</groupId>
+           		<artifactId>docx4j</artifactId>
+           		<version>3.3.6</version>
+       		</dependency>
+       		<dependency>
+           		<groupId>org.apache.poi</groupId>
+           		<artifactId>poi-ooxml</artifactId>
+           		<version>3.17</version>
+			</dependency>
 			<!-- Liferay -->
 			<dependency>
 				<groupId>com.liferay.portal</groupId>
