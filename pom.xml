@@ -497,6 +497,7 @@
 									<rules>
 										<requireSnapshotVersion>
 											<message>No releases allowed. Version must end with "-SNAPSHOT". Check that the &lt;version&gt; tag contains a non-release version string.</message>
+											<failWhenParentIsRelease>false</failWhenParentIsRelease>
 										</requireSnapshotVersion>
 									</rules>
 									<fail>true</fail>
