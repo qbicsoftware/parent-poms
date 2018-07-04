@@ -54,7 +54,7 @@ deploy:
           mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file portal/portlet/pom.xml clean deploy
   on:
     branch: master
-    tags: true
+    condition: '"$TRAVIS_EVENT_TYPE" = "push"'
 
 # encrypted credentials
 env:
