@@ -278,7 +278,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>3.0.1</version>
 				<configuration>
 					<failOnError>false</failOnError>
 				</configuration>
@@ -431,6 +431,11 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.7.1</version>
+			</plugin>
 		</plugins>
 
 		<resources>
@@ -531,6 +536,10 @@
 										<requireReleaseVersion>
 											<message>Only release versions are allowed. The suffix "-SNAPSHOT" is not allowed in release versions. Check that the &lt;version&gt; contains a release version string.</message>
 										</requireReleaseVersion>
+										<requireReleaseDeps>
+											<message>No SNAPSHOT dependencies are allowed in a release!</message>
+											<onlyWhenRelease>true</onlyWhenRelease>
+										</requireReleaseDeps>
 									</rules>
 									<fail>true</fail>
 								</configuration>
