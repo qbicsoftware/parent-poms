@@ -55,6 +55,7 @@ Once everything looks fine, stage, commit and push your changes:
 Monitor the build on [Travis][travis] and make sure it all builds properly.
 
 Switch to the `development` branch (`git checkout development`) and _bump_ the snapshot version:
+
 | File                     | Before (snapshot version)                                                        | After (release version)                      |
 | :----------------------- |:---------------------------------------------------------------------------------|:---------------------------------------------|
 | `pom.xml`                | `project/version = 1.2.0-SNAPSHOT`                                               | `project/version = 1.3.0-SNAPSHOT`
