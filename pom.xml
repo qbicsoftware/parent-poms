@@ -39,6 +39,12 @@
 				<artifactId>javafx-d3-lib</artifactId>
 				<version>0.0.2</version>
 			</dependency>
+			<!-- openBIS -->
+			<dependency>
+        		<groupId>life.qbic.openbis</groupId>
+            	<artifactId>openbis_api</artifactId>
+				<version>3-S253.0</version>
+        	</dependency>
 			<!-- Access to QBiC internal databases (portlets use direct JDBC to access data for now),
 				 but we will create a client library that portlets will use -->
 			<dependency>
