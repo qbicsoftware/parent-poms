@@ -5,7 +5,7 @@
 	<groupId>life.qbic</groupId>
 	<artifactId>parent-pom</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
-	<version>1.2.0</version>
+	<version>1.3.0-SNAPSHOT</version>
 	<name>Parent POM</name>
 	<description>Parent POM for all QBiC software</description>
 	<packaging>pom</packaging>
@@ -29,16 +29,12 @@
 			<!-- Do not include dependencies who use any of the parent POMs in here!
 			     This will cause circular dependencies, see: https://github.com/qbicsoftware/parent-poms/issues/18 -->
 			<!-- dependencies whose repos we forked and do not use any of the parent POMs -->
+			<!-- openBIS -->
 			<dependency>
-				<groupId>life.qbic</groupId>
-				<artifactId>isa-creator-lib</artifactId>
-				<version>1.7.13-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>life.qbic</groupId>
-				<artifactId>javafx-d3-lib</artifactId>
-				<version>0.0.2</version>
-			</dependency>
+        		<groupId>life.qbic.openbis</groupId>
+            	<artifactId>openbis_api</artifactId>
+				<version>3-S253.0</version>
+        	</dependency>
 			<!-- Access to QBiC internal databases (portlets use direct JDBC to access data for now),
 				 but we will create a client library that portlets will use -->
 			<dependency>
