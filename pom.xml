@@ -100,7 +100,7 @@
 			<dependency>
 				<groupId>info.picocli</groupId>
 				<artifactId>picocli</artifactId>
-				<version>3.0.0</version>
+				<version>3.7.0</version>
 			</dependency>
 			<!-- logging -->
 			<dependency>
