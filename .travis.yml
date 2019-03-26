@@ -15,7 +15,6 @@ branches:
   only:
   - master
   - development
-  - /[0-9]*\.[0-9]*\.[0-9]*/ # adds release branches
 
 # added to make logs look cleaner, crisper, certified fresh
 before_install: unset _JAVA_OPTIONS 
@@ -55,7 +54,6 @@ deploy:
   on:
     branch: master
     condition: '"$TRAVIS_EVENT_TYPE" = "push"'
-    tags: true
 
 # encrypted credentials
 env:
