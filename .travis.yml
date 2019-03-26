@@ -1,10 +1,9 @@
 # Build script for Travis CI
 #
 
-# non-sudo hosts are faster, according to Travis CI documentation
-sudo: false
 language: java
 jdk: openjdk8
+dist: trusty
 
 # speed up builds by caching maven local repository
 cache:
@@ -55,6 +54,7 @@ deploy:
   on:
     branch: master
     condition: '"$TRAVIS_EVENT_TYPE" = "push"'
+    tags: true
 
 # encrypted credentials
 env:
