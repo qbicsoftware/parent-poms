@@ -3,7 +3,7 @@
 
 language: java
 jdk: openjdk8
-dist: trusty
+dist: xenial
 
 # speed up builds by caching maven local repository
 cache:
@@ -15,6 +15,8 @@ branches:
   only:
   - master
   - development
+  # Travis treats pushed tags as branches
+  - /^[vV]?\d+\.\d+\.\d+$/ # matches e.g., v1.2.3, 1.2.3, V1.2.3
 
 # added to make logs look cleaner, crisper, certified fresh
 before_install: unset _JAVA_OPTIONS 
@@ -52,8 +54,8 @@ deploy:
           mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file portal/pom.xml clean deploy &&
           mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file portal/portlet/pom.xml clean deploy
   on:
-    branch: master
     condition: '"$TRAVIS_EVENT_TYPE" = "push"'
+    tags: true
 
 # encrypted credentials
 env:
