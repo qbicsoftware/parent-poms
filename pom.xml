@@ -21,6 +21,8 @@
 		<powermock.version>2.0.0-beta.5</powermock.version>
 		<jetty.plugin.version>9.4.10.v20180503</jetty.plugin.version>
 		<jetty.scanIntervalSeconds>2</jetty.scanIntervalSeconds>
+		<!-- whether builds should fail verification if jacoco checks fail -->
+		<verify.strict>false</verify.strict>
 	</properties>
 	<!-- we define dependencies in the dependencyManagement section so child poms have control over WHICH dependencies they use,
 	     but we centralize the control over which version is used -->
@@ -31,10 +33,10 @@
 			<!-- dependencies whose repos we forked and do not use any of the parent POMs -->
 			<!-- openBIS -->
 			<dependency>
-        		<groupId>life.qbic.openbis</groupId>
-            	<artifactId>openbis_api</artifactId>
+				<groupId>life.qbic.openbis</groupId>
+				<artifactId>openbis_api</artifactId>
 				<version>3-S253.0</version>
-        	</dependency>
+			</dependency>
 			<!-- Access to QBiC internal databases (portlets use direct JDBC to access data for now),
 				 but we will create a client library that portlets will use -->
 			<dependency>
@@ -290,19 +292,19 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.1.0</version>				
+				<version>3.1.0</version>
 				<configuration>
-          			<nonFilteredFileExtensions>
-            			<nonFilteredFileExtension>docx</nonFilteredFileExtension>
+					<nonFilteredFileExtensions>
+						<nonFilteredFileExtension>docx</nonFilteredFileExtension>
 						<nonFilteredFileExtension>pdf</nonFilteredFileExtension>
-          			</nonFilteredFileExtensions>
-        		</configuration>
+					</nonFilteredFileExtensions>
+				</configuration>
 			</plugin>
 			<plugin>
-            	<groupId>org.apache.maven.plugins</groupId>
-            	<artifactId>maven-project-info-reports-plugin</artifactId>
-            	<version>3.0.0</version>
-        	</plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.0.0</version>
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
@@ -454,14 +456,29 @@
 							<goal>check</goal>
 						</goals>
 						<configuration>
+							<haltOnFailure>${verify.strict}</haltOnFailure>
+							<!-- add extra rules, such as maximum complexity -->
 							<rules>
 								<rule>
 									<element>BUNDLE</element>
 									<limits>
+										<!-- tests should cover at least 80% of statements -->
 										<limit>
-											<counter>COMPLEXITY</counter>
+											<counter>INSTRUCTION</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.60</minimum>
+											<minimum>0.80</minimum>
+										</limit>
+										<!-- all classes should be tested at least once -->
+										<limit>
+											<counter>CLASS</counter>
+											<value>MISSEDCOUNT</value>
+											<maximum>0</maximum>
+										</limit>
+										<!-- all branches should be executed/tested at least once -->
+										<limit>
+											<counter>BRANCH</counter>
+											<value>MISSEDCOUNT</value>
+											<maximum>0</maximum>
 										</limit>
 									</limits>
 								</rule>
@@ -512,58 +529,58 @@
 				</reportSets>
 			</plugin>
 			<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-        		<artifactId>maven-pmd-plugin</artifactId>
-        		<version>3.11.0</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.11.0</version>
 				<configuration>
 					<targetJdk>${maven.compiler.target}</targetJdk>
 				</configuration>
-      		</plugin>
+			</plugin>
 			<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-        		<artifactId>maven-surefire-report-plugin</artifactId>
-        		<version>3.0.0-M3</version>
-      		</plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>3.0.0-M3</version>
+			</plugin>
 			<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-        		<artifactId>maven-javadoc-plugin</artifactId>
-        		<version>3.1.0</version>
-        		<configuration>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
 					<failOnError>false</failOnError>
 					<doclint>all</doclint>
-        		</configuration>
-				<reportSets>
-          			<reportSet>
-            			<id>default</id>
-			            <reports>
-            			  <report>javadoc</report>
-			            </reports>
-          			</reportSet>
-				</reportSets>
-      		</plugin>
-			<plugin>
-        		<groupId>org.jacoco</groupId>
-        		<artifactId>jacoco-maven-plugin</artifactId>
-        		<reportSets>
-          			<reportSet>
-            			<reports>
-              				<report>report</report>
-            			</reports>
-          			</reportSet>
-        		</reportSets>
-      		</plugin>
-			<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-        		<artifactId>maven-jxr-plugin</artifactId>
-        		<version>3.0.0</version>
+				</configuration>
 				<reportSets>
 					<reportSet>
-            			<reports>
-              				<report>jxr</report>
-            			</reports>
-          			</reportSet>
+						<id>default</id>
+						<reports>
+							<report>javadoc</report>
+						</reports>
+					</reportSet>
 				</reportSets>
-      		</plugin>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>3.0.0</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>jxr</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
 		</plugins>
 	</reporting>
 	<profiles>
