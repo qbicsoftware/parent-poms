@@ -343,45 +343,6 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.1</version>
-				<configuration>
-					<excludes>
-						<exclude>**/*IntegrationTest.*</exclude>
-					</excludes>
-				</configuration>
-				<executions>
-					<execution>
-						<id>test</id>
-						<goals>
-							<goal>test</goal>
-						</goals>
-						<configuration>
-							<excludes>
-								<exclude>**/*IntegrationTest.*</exclude>
-							</excludes>
-							<includes>**/*Specification.*</includes>
-						</configuration>
-					</execution>
-					<execution>
-						<id>integration-test</id>
-						<goals>
-							<goal>test</goal>
-						</goals>
-						<phase>verify</phase>
-						<configuration>
-							<excludes>
-								<exclude>**/*Specification.*</exclude>
-							</excludes>
-							<includes>
-								<include>**/*IntegrationTest.*</include>
-							</includes>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.6.0</version>
@@ -395,37 +356,6 @@
 						<argument>${exec.mainClass}</argument>
 					</arguments>
 				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.7.0</version>
-				<configuration>
-					<compilerId>groovy-eclipse-compiler</compilerId>
-				</configuration>
-				<executions>
-					<execution>
-						<id>test-compile</id>
-						<phase>process-test-sources</phase>
-						<goals>
-							<goal>testCompile</goal>
-						</goals>
-						<configuration>
-							<compilerId>groovy-eclipse-compiler</compilerId>
-						</configuration>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>org.codehaus.groovy</groupId>
-						<artifactId>groovy-eclipse-compiler</artifactId>
-						<version>2.9.3-01</version>
-					</dependency>
-					<dependency>
-						<groupId>org.codehaus.groovy</groupId>
-						<artifactId>groovy-eclipse-batch</artifactId>
-						<version>2.5.6-01</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.groovy</groupId>
