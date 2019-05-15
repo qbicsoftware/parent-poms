@@ -414,8 +414,9 @@
 				<version>3.0.0-M3</version>
 				<configuration>
 					<excludes>
-						<exclude>**/*IntegrationTest.java</exclude>
+						<exclude>**/*IntegrationTest.*</exclude>
 					</excludes>
+					<includes>**/*Specification.*</includes>
 				</configuration>
 			</plugin>
 			<!-- integration tests -->
@@ -434,7 +435,7 @@
 								<exclude>none</exclude>
 							</excludes>
 							<includes>
-								<include>**/*IntegrationTest.java</include>
+								<include>**/*IntegrationTest.*</include>
 							</includes>
 						</configuration>
 					</execution>
