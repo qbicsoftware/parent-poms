@@ -66,11 +66,6 @@
                 <version>2.5.6</version>
             </dependency>
             <dependency>
-                <groupId>org.codehaus.groovy</groupId>
-                <artifactId>groovy</artifactId>
-                <version>2.5.6</version>
-            </dependency>
-            <dependency>
                 <groupId>io.micronaut.test</groupId>
                 <artifactId>micronaut-test-spock</artifactId>
                 <version>1.0.2</version>
