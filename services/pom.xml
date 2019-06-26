@@ -202,12 +202,6 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <artifactSet>
-                                <includes>
-                                    <!-- Includes all groovy modules in the uber jar-->
-                                    <include>org.codehaus.groovy:groovy-*</include>
-                                </includes>
-                            </artifactSet>
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
@@ -215,6 +209,11 @@
                                 </transformer>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.GroovyResourceTransformer">
+                                    <extModuleName>the-aggregated-module</extModuleName>
+                                    <extModuleVersion>1.0.0</extModuleVersion>
+                                </transformer>
                             </transformers>
                         </configuration>
                     </execution>
