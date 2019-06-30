@@ -185,13 +185,14 @@
             <artifactId>micronaut-utils-lib</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.codehaus.groovy</groupId>
+            <groupId>org.codehaus.groovy</groupIStringd
             <artifactId>groovy-dateutil</artifactId>
         </dependency>
     </dependencies>
     <build>
         <plugins>
             <plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-shade-plugin -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.1</version>
