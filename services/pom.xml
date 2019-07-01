@@ -62,7 +62,6 @@
             <dependency>
                 <groupId>org.codehaus.groovy</groupId>
                 <artifactId>groovy-sql</artifactId>
-                <scope>compile</scope>
                 <version>2.5.7</version>
             </dependency>
             <dependency>
@@ -104,27 +103,22 @@
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-sql</artifactId>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-http-client</artifactId>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-http-server-netty</artifactId>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-runtime-groovy</artifactId>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-validation</artifactId>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.micronaut</groupId>
@@ -185,7 +179,7 @@
             <artifactId>micronaut-utils-lib</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.codehaus.groovy</groupIStringd
+            <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-dateutil</artifactId>
         </dependency>
     </dependencies>
