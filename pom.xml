@@ -37,11 +37,6 @@
 				<artifactId>openbis_api</artifactId>
 				<version>3-S253.0</version>
 			</dependency>
-			<dependency>
-				<groupId>org.codehaus.groovy</groupId>
-				<artifactId>groovy</artifactId>
-				<version>2.5.6</version>
-			</dependency>
 			<!-- Access to QBiC internal databases (portlets use direct JDBC to access data for now),
 				 but we will create a client library that portlets will use -->
 			<dependency>
@@ -281,11 +276,11 @@
 				<extensions>true</extensions>
 				<dependencies>
 					<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-eclipse-compiler -->
-					<dependency>
-						<groupId>org.codehaus.groovy</groupId>
-						<artifactId>groovy-eclipse-compiler</artifactId>
-						<version>3.3.0-01</version>
-					</dependency>
+				<dependency>
+					<groupId>org.codehaus.groovy</groupId>
+					<artifactId>groovy-eclipse-compiler</artifactId>
+					<version>3.3.0-01</version>
+				</dependency>
 				</dependencies>
 			</plugin>
 			<plugin>
@@ -315,12 +310,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.7.0</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-					<source>${maven.compiler.source}</source>
-					<target>${maven.compiler.target}</target>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
