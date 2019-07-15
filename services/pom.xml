@@ -98,7 +98,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <!-- Micronaut service framework dependencies -->
+    <!-- Micronaut service   framework dependencies -->
     <dependencies>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
@@ -140,11 +140,6 @@
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations</artifactId>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.micronaut.configuration</groupId>
-            <artifactId>micronaut-openapi</artifactId>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
