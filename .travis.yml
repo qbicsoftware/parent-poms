@@ -28,6 +28,7 @@ install: true
 script: mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file pom.xml clean install &&
         mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file cli/pom.xml clean install &&
         mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file portal/pom.xml clean install &&
+        mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file services/pom.xml clean install &&
         mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file portal/portlet/pom.xml clean install
 # no after_success tasks when handling pure POMs
 
@@ -40,6 +41,7 @@ deploy:
   script: mvn --quiet --activate-profiles development-build,!release-build --settings .travis.settings.xml --file pom.xml clean deploy &&
           mvn --quiet --activate-profiles development-build,!release-build --settings .travis.settings.xml --file cli/pom.xml clean deploy &&
           mvn --quiet --activate-profiles development-build,!release-build --settings .travis.settings.xml --file portal/pom.xml clean deploy &&
+          mvn --quiet --activate-profiles development-build,!release-build --settings .travis.settings.xml --file services/pom.xml clean deploy &&
           mvn --quiet --activate-profiles development-build,!release-build --settings .travis.settings.xml --file portal/portlet/pom.xml clean deploy
   on:
     branch: development
@@ -52,6 +54,7 @@ deploy:
   script: mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file pom.xml clean deploy &&
           mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file cli/pom.xml clean deploy &&
           mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file portal/pom.xml clean deploy &&
+          mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file services/pom.xml clean deploy &&
           mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file portal/portlet/pom.xml clean deploy
   on:
     condition: '"$TRAVIS_EVENT_TYPE" = "push"'
