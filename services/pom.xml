@@ -10,7 +10,6 @@
     </parent>
     <artifactId>service-parent-pom</artifactId>
     <!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
-    <version>${parentPom.version}</version>
     <name>Service parent POM</name>
     <description>Parent POM for all QBiC services that depends on Micronaut and Groovy.</description>
     <packaging>pom</packaging>
