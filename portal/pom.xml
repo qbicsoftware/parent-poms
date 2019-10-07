@@ -11,7 +11,6 @@
 	<groupId>life.qbic</groupId>
 	<artifactId>portal-parent-pom</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
-	<version>${paretPom.version}</version>
 	<name>Portal parent POM</name>
 	<description>Parent POM for all QBiC software that depends on a Liferay portal and Vaadin.</description>
 	<packaging>pom</packaging>
