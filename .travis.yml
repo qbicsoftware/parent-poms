@@ -25,7 +25,8 @@ before_install: unset _JAVA_OPTIONS
 install: true
 
 # as agreed in our SOP, build everything (don't deploy, just try to 'mvn install' locally, which covers all phases)
-script: mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file pom.xml clean install &&
+script: mvn versions:set -DnewVersion=project.version && mvn versions:commit &&
+        mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file pom.xml clean install &&
         mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file cli/pom.xml clean install &&
         mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file portal/pom.xml clean install &&
         mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file services/pom.xml clean install &&
