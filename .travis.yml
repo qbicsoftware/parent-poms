@@ -25,12 +25,8 @@ before_install: unset _JAVA_OPTIONS
 install: true
 
 # as agreed in our SOP, build everything (don't deploy, just try to 'mvn install' locally, which covers all phases)
-script: mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file pom.xml clean install &&
-        mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file cli/pom.xml clean install &&
-        mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file portal/pom.xml clean install &&
-        mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file services/pom.xml clean install &&
-        mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file portal/portlet/pom.xml clean install
-# no after_success tasks when handling pure POMs
+script: mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.incrementalVersion}-SNAPSHOT -DprocessAllModules && mvn versions:commit &&
+        mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml --file pom.xml clean install
 
 deploy:
   # as agreed in our SOP, builds on development branch will deploy to our maven repository after validating
@@ -38,11 +34,7 @@ deploy:
   # artifact will be installed in our testing instance if it is a .war file
 - skip_cleanup: true
   provider: script
-  script: mvn --quiet --activate-profiles development-build,!release-build --settings .travis.settings.xml --file pom.xml clean deploy &&
-          mvn --quiet --activate-profiles development-build,!release-build --settings .travis.settings.xml --file cli/pom.xml clean deploy &&
-          mvn --quiet --activate-profiles development-build,!release-build --settings .travis.settings.xml --file portal/pom.xml clean deploy &&
-          mvn --quiet --activate-profiles development-build,!release-build --settings .travis.settings.xml --file services/pom.xml clean deploy &&
-          mvn --quiet --activate-profiles development-build,!release-build --settings .travis.settings.xml --file portal/portlet/pom.xml clean deploy
+  script: mvn --quiet --activate-profiles development-build,!release-build --settings .travis.settings.xml --file pom.xml clean deploy
   on:
     branch: development
     condition: '"$TRAVIS_EVENT_TYPE" = "push"'
@@ -51,11 +43,8 @@ deploy:
   # artifact will be installed in our testing instance if it is a .war file
 - skip_cleanup: true
   provider: script
-  script: mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file pom.xml clean deploy &&
-          mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file cli/pom.xml clean deploy &&
-          mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file portal/pom.xml clean deploy &&
-          mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file services/pom.xml clean deploy &&
-          mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file portal/portlet/pom.xml clean deploy
+  script: mvn build-helper:parse-version versions:set -DnewVersion=$TRAVIS_TAG -DprocessAllModules && mvn versions:commit &&
+          mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file pom.xml clean deploy
   on:
     condition: '"$TRAVIS_EVENT_TYPE" = "push"'
     tags: true
