@@ -52,7 +52,8 @@ deploy:
   # artifact will be installed in our testing instance if it is a .war file
 - skip_cleanup: true
   provider: script
-  script: mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file pom.xml clean deploy &&
+  script: mvn build-helper:parse-version versions:set -DnewVersion=$TRAVIS_TAG -DprocessAllModules && mvn versions:commit &&
+          mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file pom.xml clean deploy &&
           mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file cli/pom.xml clean deploy &&
           mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file portal/pom.xml clean deploy &&
           mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file services/pom.xml clean deploy &&
