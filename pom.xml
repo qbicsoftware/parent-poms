@@ -9,6 +9,12 @@
 	<name>Parent POM</name>
 	<description>Parent POM for all QBiC software</description>
 	<packaging>pom</packaging>
+	<modules>
+		<module>services</module>
+		<module>cli</module>
+		<module>portal</module>
+		<module>portal/portlet</module>
+	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
