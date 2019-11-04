@@ -12,6 +12,12 @@
 	<name>Portlet parent POM</name>
 	<description>Parent POM for all QBiC software that depends on a Liferay portal and Vaadin.</description>
 	<packaging>pom</packaging>
+	<properties>
+		<vaadin.version>8.9.2</vaadin.version>
+		<vaadin.plugin.version>8.9.2</vaadin.plugin.version>
+		<jetty.plugin.version>9.4.10.v20180503</jetty.plugin.version>
+		<jetty.scanIntervalSeconds>2</jetty.scanIntervalSeconds>
+	</properties>
 	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
 	<repositories>
 		<repository>
@@ -41,6 +47,41 @@
 			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-releases</url>
 		</repository>
 	</repositories>
+	<dependencyManagement>
+		<dependencies>
+			<!-- Vaadin offers a bill of materials including all of the vaadin artifacts -->
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-bom</artifactId>
+				<version>${vaadin.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.vaadin.addon</groupId>
+				<artifactId>vaadin-charts</artifactId>
+				<version>4.2.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.vaadin.addons</groupId>
+				<artifactId>vaadin-grid-util</artifactId>
+				<version>1.0.0</version>
+			</dependency>
+			<!-- Liferay -->
+			<dependency>
+				<groupId>com.liferay.portal</groupId>
+				<artifactId>portal-service</artifactId>
+				<version>${liferay.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.liferay.portal</groupId>
+				<artifactId>util-java</artifactId>
+				<version>${liferay.version}</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
 		<!-- Vaadin, Liferay and Servlet dependencies have been added in portal-parent-pom -->
 

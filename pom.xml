@@ -20,13 +20,9 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<log4j.version>2.11.0</log4j.version>
-		<vaadin.version>8.9.2</vaadin.version>
 		<liferay.version>6.2.5</liferay.version>
-		<vaadin.plugin.version>7.7.8</vaadin.plugin.version>
 		<liferay.maven.plugin.version>6.2.5</liferay.maven.plugin.version>
 		<powermock.version>2.0.0-beta.5</powermock.version>
-		<jetty.plugin.version>9.4.10.v20180503</jetty.plugin.version>
-		<jetty.scanIntervalSeconds>2</jetty.scanIntervalSeconds>
 		<!-- whether builds should fail verification if jacoco checks fail -->
 		<verify.strict>false</verify.strict>
 	</properties>
@@ -50,24 +46,7 @@
 				<artifactId>mariadb-java-client</artifactId>
 				<version>2.0.2</version>
 			</dependency>
-			<!-- Vaadin offers a bill of materials including all of the vaadin artifacts -->
-			<dependency>
-				<groupId>com.vaadin</groupId>
-				<artifactId>vaadin-bom</artifactId>
-				<version>${vaadin.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.vaadin.addon</groupId>
-				<artifactId>vaadin-charts</artifactId>
-				<version>3.2.0</version>
-			</dependency>
-			<dependency>
-				<groupId>org.vaadin.addons</groupId>
-				<artifactId>vaadin-grid-util</artifactId>
-				<version>1.0.0</version>
-			</dependency>
+
 			<dependency>
 				<groupId>org.docx4j</groupId>
 				<artifactId>docx4j</artifactId>
@@ -77,19 +56,6 @@
 				<groupId>org.apache.poi</groupId>
 				<artifactId>poi-ooxml</artifactId>
 				<version>3.17</version>
-			</dependency>
-			<!-- Liferay -->
-			<dependency>
-				<groupId>com.liferay.portal</groupId>
-				<artifactId>portal-service</artifactId>
-				<version>${liferay.version}</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.liferay.portal</groupId>
-				<artifactId>util-java</artifactId>
-				<version>${liferay.version}</version>
-				<scope>provided</scope>
 			</dependency>
 			<!-- J2EE dependencies -->
 			<dependency>
