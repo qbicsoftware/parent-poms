@@ -13,6 +13,10 @@
 	<name>Portal parent POM</name>
 	<description>Parent POM for all QBiC software that depends on a Liferay portal and Vaadin.</description>
 	<packaging>pom</packaging>
+	<properties>
+		<vaadin.version>8.9.2</vaadin.version>
+		<vaadin.plugin.version>8.9.2</vaadin.plugin.version>
+	</properties>
 	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
 	<repositories>
 		<repository>
@@ -64,7 +68,7 @@
 		<dependency>
 			<groupId>com.vaadin.addon</groupId>
 			<artifactId>vaadin-charts</artifactId>
-			<version>4.2.0</version>
+			<version>3.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.vaadin.addons</groupId>
