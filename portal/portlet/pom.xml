@@ -5,14 +5,19 @@
 	<parent>
 		<groupId>life.qbic</groupId>
 		<artifactId>portal-parent-pom</artifactId>
-		<version>1.6.0-SNAPSHOT</version>
+		<version>1.8.0-SNAPSHOT</version>
 	</parent>
-	<groupId>life.qbic</groupId>
 	<artifactId>portlet-parent-pom</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
 	<name>Portlet parent POM</name>
 	<description>Parent POM for all QBiC software that depends on a Liferay portal and Vaadin.</description>
 	<packaging>pom</packaging>
+	<properties>
+		<vaadin.version>8.9.2</vaadin.version>
+		<vaadin.plugin.version>8.9.2</vaadin.plugin.version>
+		<jetty.plugin.version>9.4.10.v20180503</jetty.plugin.version>
+		<jetty.scanIntervalSeconds>2</jetty.scanIntervalSeconds>
+	</properties>
 	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
 	<repositories>
 		<repository>
@@ -42,6 +47,9 @@
 			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-releases</url>
 		</repository>
 	</repositories>
+	<dependencyManagement>
+
+	</dependencyManagement>
 	<dependencies>
 		<!-- Vaadin, Liferay and Servlet dependencies have been added in portal-parent-pom -->
 
@@ -49,6 +57,85 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-maven-plugin</artifactId>
+				<version>${vaadin.plugin.version}</version>
+				<configuration>
+					<extraJvmArgs>-Xmx512M -Xss1024k</extraJvmArgs>
+					<!-- We are doing "inplace" but into subdir VAADIN/widgetsets. This way compatible with Vaadin eclipse plugin. -->
+					<webappDirectory>${basedir}/src/main/webapp/VAADIN/widgetsets</webappDirectory>
+					<hostedWebapp>${basedir}/src/main/webapp/VAADIN/widgetsets</hostedWebapp>
+					<!-- Most Vaadin apps don't need this stuff, guide that to target -->
+					<persistentunitcachedir>${project.build.directory}</persistentunitcachedir>
+					<deploy>${project.build.directory}/gwt-deploy</deploy>
+					<!-- Compile report is not typically needed either, saves hundreds of disk -->
+					<compileReport>false</compileReport>
+					<noServer>true</noServer>
+					<!-- Remove draftCompile when project is ready -->
+					<draftCompile>false</draftCompile>
+					<style>OBF</style>
+				</configuration>
+				<executions>
+					<execution>
+						<configuration>
+							<!-- if you don't specify any modules, the plugin will find them -->
+						</configuration>
+						<goals>
+							<goal>clean</goal>
+							<goal>resources</goal>
+							<goal>update-theme</goal>
+							<goal>update-widgetset</goal>
+							<goal>compile-theme</goal>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty.plugin.version}</version>
+				<configuration>
+					<!-- Jetty's hot deploy enabled has been enabled by default!
+
+						 If you want to disable jetty's hot deploy feature, activate the 'jetty-cold-deploy' profile
+						 via the command line:
+
+						 mvn -P jetty-cold-deploy
+
+						 Or, alternatively, you can change your settings.xml to permanently activate this profile.
+
+						 For more information on how to permanently activate a property,
+						 see: https://maven.apache.org/settings.html#Profiles
+
+						 For more information about the origin of this long comment, see:
+						 https://github.com/qbicsoftware/parent-poms/issues/4 -->
+					<scanIntervalSeconds>${jetty.scanIntervalSeconds}</scanIntervalSeconds>
+					<useProvidedScope>true</useProvidedScope>
+					<stopPort>8005</stopPort>
+					<stopKey>STOP</stopKey>
+				</configuration>
+				<executions>
+					<execution>
+						<id>start-jetty</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>start</goal>
+						</goals>
+						<configuration>
+							<scanIntervalSeconds>${jetty.scanIntervalSeconds}</scanIntervalSeconds>
+						</configuration>
+					</execution>
+					<execution>
+						<id>stop-jetty</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<!-- enable resource filtering for war files -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

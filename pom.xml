@@ -5,7 +5,7 @@
 	<groupId>life.qbic</groupId>
 	<artifactId>parent-pom</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
-	<version>1.7.0-SNAPSHOT</version>
+	<version>2.0.0-SNAPSHOT</version>
 	<name>Parent POM</name>
 	<description>Parent POM for all QBiC software</description>
 	<packaging>pom</packaging>
@@ -20,13 +20,9 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<log4j.version>2.11.0</log4j.version>
-		<vaadin.version>7.7.8</vaadin.version>
 		<liferay.version>6.2.5</liferay.version>
-		<vaadin.plugin.version>7.7.8</vaadin.plugin.version>
 		<liferay.maven.plugin.version>6.2.5</liferay.maven.plugin.version>
 		<powermock.version>2.0.0-beta.5</powermock.version>
-		<jetty.plugin.version>9.4.10.v20180503</jetty.plugin.version>
-		<jetty.scanIntervalSeconds>2</jetty.scanIntervalSeconds>
 		<!-- whether builds should fail verification if jacoco checks fail -->
 		<verify.strict>false</verify.strict>
 	</properties>
@@ -50,24 +46,7 @@
 				<artifactId>mariadb-java-client</artifactId>
 				<version>2.0.2</version>
 			</dependency>
-			<!-- Vaadin offers a bill of materials including all of the vaadin artifacts -->
-			<dependency>
-				<groupId>com.vaadin</groupId>
-				<artifactId>vaadin-bom</artifactId>
-				<version>${vaadin.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.vaadin.addon</groupId>
-				<artifactId>vaadin-charts</artifactId>
-				<version>3.2.0</version>
-			</dependency>
-			<dependency>
-				<groupId>org.vaadin.addons</groupId>
-				<artifactId>vaadin-grid-util</artifactId>
-				<version>1.0.0</version>
-			</dependency>
+
 			<dependency>
 				<groupId>org.docx4j</groupId>
 				<artifactId>docx4j</artifactId>
@@ -78,32 +57,7 @@
 				<artifactId>poi-ooxml</artifactId>
 				<version>3.17</version>
 			</dependency>
-			<!-- Liferay -->
-			<dependency>
-				<groupId>com.liferay.portal</groupId>
-				<artifactId>portal-service</artifactId>
-				<version>${liferay.version}</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.liferay.portal</groupId>
-				<artifactId>util-java</artifactId>
-				<version>${liferay.version}</version>
-				<scope>provided</scope>
-			</dependency>
-			<!-- J2EE dependencies -->
-			<dependency>
-				<groupId>javax.portlet</groupId>
-				<artifactId>portlet-api</artifactId>
-				<version>2.0</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>javax.servlet-api</artifactId>
-				<version>3.0.1</version>
-				<scope>provided</scope>
-			</dependency>
+
 			<!-- command-line argument parsing -->
 			<dependency>
 				<groupId>info.picocli</groupId>
@@ -362,51 +316,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>3.0.0</version>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>${jetty.plugin.version}</version>
-				<configuration>
-					<!-- Jetty's hot deploy enabled has been enabled by default!
-
-						 If you want to disable jetty's hot deploy feature, activate the 'jetty-cold-deploy' profile
-						 via the command line:
-
-						 mvn -P jetty-cold-deploy
-
-						 Or, alternatively, you can change your settings.xml to permanently activate this profile. 
-						 
-						 For more information on how to permanently activate a property, 
-						 see: https://maven.apache.org/settings.html#Profiles 
-						 
-						 For more information about the origin of this long comment, see: 
-						 https://github.com/qbicsoftware/parent-poms/issues/4 -->
-					<scanIntervalSeconds>${jetty.scanIntervalSeconds}</scanIntervalSeconds>
-					<useProvidedScope>true</useProvidedScope>
-					<stopPort>8005</stopPort>
-					<stopKey>STOP</stopKey>
-				</configuration>
-				<executions>
-					<execution>
-						<id>start-jetty</id>
-						<phase>pre-integration-test</phase>
-						<goals>
-							<goal>start</goal>
-						</goals>
-						<configuration>
-							<scanIntervalSeconds>${jetty.scanIntervalSeconds}</scanIntervalSeconds>
-							<daemon>true</daemon>
-						</configuration>
-					</execution>
-					<execution>
-						<id>stop-jetty</id>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>stop</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 			<!-- unit tests -->
 			<plugin>
