@@ -122,7 +122,6 @@
 						</goals>
 						<configuration>
 							<scanIntervalSeconds>${jetty.scanIntervalSeconds}</scanIntervalSeconds>
-							<daemon>true</daemon>
 						</configuration>
 					</execution>
 					<execution>
