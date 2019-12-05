@@ -14,7 +14,7 @@
     <description>Parent POM for all QBiC services that depends on Micronaut and Groovy.</description>
     <packaging>pom</packaging>
     <properties>
-        <micronaut.version>1.2.6</micronaut.version>
+        <micronaut.version>1.2.7</micronaut.version>
     </properties>
     <!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
     <repositories>
