@@ -38,7 +38,7 @@ deploy:
   script: mvn --quiet --activate-profiles development-build,!release-build --settings .travis.settings.xml --file pom.xml clean deploy
   on:
     all_branches: true
-    condition: type = push AND branch =~ ^(development|patch)
+    condition: type = push AND branch =~ ^(development)
   # as agreed in our SOP, tagging a commit on the master branch will upload to our maven repository
   # after validating the artifact has a proper release version
   # artifact will be installed in our testing instance if it is a .war file
@@ -47,7 +47,7 @@ deploy:
   script: mvn build-helper:parse-version versions:set -DnewVersion=$TRAVIS_TAG -DprocessAllModules && mvn versions:commit &&
           mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file pom.xml clean deploy
   on:
-    condition: '"$TRAVIS_EVENT_TYPE" = "push"'
+    condition: type = push AND branch =~ ^(master|patch)
     tags: true
 
 # encrypted credentials
