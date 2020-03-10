@@ -17,6 +17,7 @@ branches:
   - development
   # Travis treats pushed tags as branches
   - /^[vV]?\d+\.\d+\.\d+$/ # matches e.g., v1.2.3, 1.2.3, V1.2.3
+  - /^patch/
 
 # added to make logs look cleaner, crisper, certified fresh
 before_install: unset _JAVA_OPTIONS 
@@ -36,8 +37,8 @@ deploy:
   provider: script
   script: mvn --quiet --activate-profiles development-build,!release-build --settings .travis.settings.xml --file pom.xml clean deploy
   on:
-    branch: development
-    condition: '"$TRAVIS_EVENT_TYPE" = "push"'
+    all_branches: true
+    condition: type = push AND branch =~ ^(development|patch)
   # as agreed in our SOP, tagging a commit on the master branch will upload to our maven repository
   # after validating the artifact has a proper release version
   # artifact will be installed in our testing instance if it is a .war file
