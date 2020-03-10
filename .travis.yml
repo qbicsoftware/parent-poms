@@ -47,6 +47,7 @@ deploy:
   script: mvn build-helper:parse-version versions:set -DnewVersion=$TRAVIS_TAG -DprocessAllModules && mvn versions:commit &&
           mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml --file pom.xml clean deploy
   on:
+    all_branches: true
     condition: type = push AND branch =~ ^(master|patch)
     tags: true
 
