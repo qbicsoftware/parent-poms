@@ -374,6 +374,7 @@
 					</excludes>
 					<includes>**/*Test.*</includes>
 					<includes>**/*Specification.*</includes>
+					<includes>**/*Spec.*</includes>
 					<systemPropertyVariables>
 						<jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
 					</systemPropertyVariables>
