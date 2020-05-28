@@ -298,6 +298,8 @@
 							<goal>addSources</goal>
 							<goal>addTestSources</goal>
 							<goal>generateStubs</goal>
+							<goal>groovydoc</goal>
+							<goal>groovydocTests</goal>
 							<goal>compile</goal>
 							<goal>generateTestStubs</goal>
 							<goal>compileTests</goal>
