@@ -172,6 +172,7 @@
 		<dependency>
 			<groupId>org.codehaus.groovy</groupId>
 			<artifactId>groovy-all</artifactId>
+			<type>pom</type>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.groovy</groupId>
@@ -287,6 +288,7 @@
 				<version>1.9.0</version>
 				<executions>
 					<execution>
+						<id>default</id>
 						<goals>
 							<goal>addSources</goal>
 							<goal>addTestSources</goal>
@@ -299,6 +301,7 @@
 						</goals>
 					</execution>
 					<execution>
+						<id>site</id>
 						<phase>site</phase>
 						<goals>
 							<goal>generateStubs</goal>
