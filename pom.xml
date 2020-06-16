@@ -286,18 +286,25 @@
 				<version>1.9.0</version>
 				<executions>
 					<execution>
+						<phase>install</phase>
 						<goals>
-							<goal>execute</goal>
 							<goal>addSources</goal>
 							<goal>addTestSources</goal>
 							<goal>generateStubs</goal>
 							<goal>compile</goal>
-							<goal>groovydoc</goal>
 							<goal>generateTestStubs</goal>
-							<goal>groovydocTests</goal>
 							<goal>compileTests</goal>
 							<goal>removeStubs</goal>
 							<goal>removeTestStubs</goal>
+						</goals>
+					</execution>
+					<execution>
+						<phase>site</phase>
+						<goals>
+							<goal>generateStubs</goal>
+							<goal>generateTestStubs</goal>
+							<goal>groovydoc</goal>
+							<goal>groovydocTests</goal>
 						</goals>
 					</execution>
 				</executions>
