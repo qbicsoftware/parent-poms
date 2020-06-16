@@ -295,19 +295,11 @@
 							<goal>generateStubs</goal>
 							<goal>compile</goal>
 							<goal>generateTestStubs</goal>
+							<goal>groovydoc</goal>
+							<goal>groovydocTests</goal>
 							<goal>compileTests</goal>
 							<goal>removeStubs</goal>
 							<goal>removeTestStubs</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>site</id>
-						<phase>site</phase>
-						<goals>
-							<goal>generateStubs</goal>
-							<goal>generateTestStubs</goal>
-							<goal>groovydoc</goal>
-							<goal>groovydocTests</goal>
 						</goals>
 					</execution>
 				</executions>
