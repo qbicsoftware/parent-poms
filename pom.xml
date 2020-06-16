@@ -274,15 +274,7 @@
 			<plugin>
 				<groupId>org.codehaus.gmavenplus</groupId>
 				<artifactId>gmavenplus-plugin</artifactId>
-				<version>1.6.3</version>
-				<dependencies>
-					<!-- https://mvnrepository.com/artifact/org.codehaus.gmavenplus/gmavenplus-plugin -->
-					<dependency>
-						<groupId>org.codehaus.gmavenplus</groupId>
-						<artifactId>gmavenplus-plugin</artifactId>
-						<version>1.6.3</version>
-					</dependency>
-				</dependencies>
+				<version>1.9.0</version>
 				<executions>
 					<execution>
 						<goals>
@@ -292,8 +284,21 @@
 							<goal>compile</goal>
 							<goal>generateTestStubs</goal>
 							<goal>compileTests</goal>
+							<goal>groovydoc</goal>
+							<goal>groovydocTests</goal>
 							<goal>removeStubs</goal>
 							<goal>removeTestStubs</goal>
+						</goals>
+					</execution>
+					<execution>
+						<phase>site</phase>
+						<goals>
+							<goal>generateStubs</goal>
+							<goal>generateTestStubs</goal>
+							<goal>compile</goal>
+							<goal>compileTests</goal>
+							<goal>groovydoc</goal>
+							<goal>groovydocTests</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -303,6 +308,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
+
 					<fork>true</fork>
 					<compilerArgs>
 						<arg>-J-Dmicronaut.openapi.views.spec=swagger-ui.enabled=true,swagger-ui.theme=flattop</arg>
@@ -325,7 +331,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.0.1</version>
+				<version>3.2.0</version>
 				<configuration>
 					<failOnError>false</failOnError>
 				</configuration>
