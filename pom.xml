@@ -284,8 +284,6 @@
 							<goal>compile</goal>
 							<goal>generateTestStubs</goal>
 							<goal>compileTests</goal>
-							<goal>groovydoc</goal>
-							<goal>groovydocTests</goal>
 							<goal>removeStubs</goal>
 							<goal>removeTestStubs</goal>
 						</goals>
@@ -295,8 +293,6 @@
 						<goals>
 							<goal>generateStubs</goal>
 							<goal>generateTestStubs</goal>
-							<goal>compile</goal>
-							<goal>compileTests</goal>
 							<goal>groovydoc</goal>
 							<goal>groovydocTests</goal>
 						</goals>
