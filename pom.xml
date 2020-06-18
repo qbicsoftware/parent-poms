@@ -288,26 +288,18 @@
 				<version>1.9.0</version>
 				<executions>
 					<execution>
-						<id>default</id>
+						<id>compile</id>
+						<phase>compile</phase>
 						<goals>
 							<goal>addSources</goal>
 							<goal>addTestSources</goal>
 							<goal>generateStubs</goal>
-							<goal>compile</goal>
-							<goal>generateTestStubs</goal>
-							<goal>compileTests</goal>
-							<goal>removeStubs</goal>
-							<goal>removeTestStubs</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>site</id>
-						<phase>site</phase>
-						<goals>
-							<goal>generateStubs</goal>
 							<goal>generateTestStubs</goal>
 							<goal>groovydoc</goal>
 							<goal>groovydocTests</goal>
+							<goal>compileTests</goal>
+							<goal>removeStubs</goal>
+							<goal>removeTestStubs</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -317,7 +309,6 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
-
 					<fork>true</fork>
 					<compilerArgs>
 						<arg>-J-Dmicronaut.openapi.views.spec=swagger-ui.enabled=true,swagger-ui.theme=flattop</arg>
