@@ -302,6 +302,15 @@
 							<goal>removeTestStubs</goal>
 						</goals>
 					</execution>
+					<execution>
+					<phase>site</phase>
+					<goals>
+						<goal>generateStubs</goal>
+						<goal>generateTestStubs</goal>
+						<goal>groovydoc</goal>
+						<goal>groovydocTests</goal>
+					</goals>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
