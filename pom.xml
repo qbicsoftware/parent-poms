@@ -308,6 +308,7 @@
           <execution>
             <id>site</id>
             <phase>site</phase>
+            <configuration><groovyDocOutputDirectory>${project.basedir}/target/site/gapidocs</groovyDocOutputDirectory></configuration>
             <goals>
               <goal>generateStubs</goal>
               <goal>generateTestStubs</goal>
