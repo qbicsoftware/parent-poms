@@ -20,7 +20,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <log4j.version>2.11.0</log4j.version>
+    <log4j.version>2.13.3</log4j.version>
     <liferay.version>6.2.5</liferay.version>
     <liferay.maven.plugin.version>6.2.5</liferay.maven.plugin.version>
     <powermock.version>2.0.0-beta.5</powermock.version>
