@@ -82,12 +82,6 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>io.micronaut.test</groupId>
-                <artifactId>micronaut-test-junit5</artifactId>
-                <version>1.0.2</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>life.qbic</groupId>
                 <artifactId>micronaut-utils-lib</artifactId>
                 <version>1.1.0</version>
@@ -156,11 +150,6 @@
         <dependency>
             <groupId>io.micronaut.test</groupId>
             <artifactId>micronaut-test-spock</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.micronaut.test</groupId>
-            <artifactId>micronaut-test-junit5</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
