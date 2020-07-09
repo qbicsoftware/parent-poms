@@ -107,9 +107,8 @@
       </dependency>
       <dependency>
         <groupId>org.codehaus.groovy</groupId>
-        <artifactId>groovy-all</artifactId>
+        <artifactId>groovy-groovydoc</artifactId>
         <version>2.5.7</version>
-        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.codehaus.groovy</groupId>
@@ -130,13 +129,12 @@
     </dependency>
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy-all</artifactId>
-      <type>pom</type>
-    </dependency>
-    <dependency>
-      <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-json</artifactId>
     </dependency>
+     <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-groovydoc</artifactId>
+      </dependency>
     <!-- dependencies shared across all QBiC artifacts -->
     <!-- log4j -->
     <dependency>
