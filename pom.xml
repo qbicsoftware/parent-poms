@@ -611,5 +611,22 @@
         <jetty.scanIntervalSeconds>0</jetty.scanIntervalSeconds>
       </properties>
     </profile>
+    <profile>
+      <id>groovydocs-generation</id>
+      <activation>
+        <file>
+          <exists>src/main/groovy/</exists>
+        </file>
+      </activation>
+      <reporting>
+        <plugins>
+          <plugin>
+            <groupId>life.qbic</groupId>
+            <artifactId>groovydoc-maven-plugin</artifactId>
+            <version>1.0.0</version>
+          </plugin>
+        </plugins>
+      </reporting>
+    </profile>
   </profiles>
 </project>
