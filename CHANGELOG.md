@@ -4,6 +4,15 @@
 
 * Remove dependency pin for vaadin in the portal pom
 
+## 2.2.3 03-08-2020
+
+* Introduce portal-utils-lib for portal pom (v2.2.0)
+* Fix revision number
+
+## 2.2.2 03-08-2020
+
+* Flatten the child poms for proper deployment
+
 ## 2.2.1 03-08-2020
 
 * Bump log4j core version to address a security vulnerarbility
