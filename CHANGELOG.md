@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.3 03-08-2020
+
+* Introduce portal-utils-lib for portal pom (v2.2.0)
+* Fix revision number
+
 ## 2.2.2 03-08-2020
 
 * Flatten the child poms for proper deployment
