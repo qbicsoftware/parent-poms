@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.4 03-08-2020
+
+* Remove dependency pin for vaadin in the portal pom
+
 ## 2.2.1 03-08-2020
 
 * Bump log4j core version to address a security vulnerarbility
