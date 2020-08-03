@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.2 03-08-2020
+
+* Flatten the child poms for proper deployment
+
 ## 2.2.1 03-08-2020
 
 * Bump log4j core version to address a security vulnerarbility
