@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.4 03-08-2020
+
+* Remove dependency pin for vaadin in the portal pom
+
 ## 2.2.3 03-08-2020
 
 * Introduce portal-utils-lib for portal pom (v2.2.0)
