@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.5 03-08-2020
+
+* Pin version for flatten-maven-plugin to 1.2.2
+
 ## 2.2.4 03-08-2020
 
 * Remove dependency pin for vaadin in the portal pom
