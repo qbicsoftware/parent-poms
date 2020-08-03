@@ -5,7 +5,7 @@
 	<groupId>life.qbic</groupId>
 	<artifactId>parent-pom</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
-	<version>2.2.0</version>
+	<version>${revision}</version>
 	<name>Parent POM</name>
 	<description>Parent POM for all QBiC software</description>
 	<packaging>pom</packaging>
@@ -16,6 +16,7 @@
 		<module>portal/portlet</module>
 	</modules>
 	<properties>
+		<revision>2.2.1</revision>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -56,6 +57,16 @@
 				<groupId>org.apache.poi</groupId>
 				<artifactId>poi-ooxml</artifactId>
 				<version>3.17</version>
+			</dependency>
+			<dependency>
+				<groupId>life.qbic</groupId>
+				<artifactId>core-utils-lib</artifactId>
+				<version>1.6.0</version>
+			</dependency>
+			<dependency>
+				<groupId>life.qbic</groupId>
+				<artifactId>data-model-lib</artifactId>
+				<version>1.9.4</version>
 			</dependency>
 
 			<!-- command-line argument parsing -->
