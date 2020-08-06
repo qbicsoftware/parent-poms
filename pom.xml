@@ -5,7 +5,7 @@
 	<groupId>life.qbic</groupId>
 	<artifactId>parent-pom</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
-	<version>${revision}</version>
+	<version>2.3.0-SNAPSHOT</version>
 	<name>Parent POM</name>
 	<description>Parent POM for all QBiC software</description>
 	<packaging>pom</packaging>
@@ -16,7 +16,6 @@
 		<module>portal/portlet</module>
 	</modules>
 	<properties>
-		<revision>2.3.0-SNAPSHOT</revision>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -449,6 +448,7 @@
         <artifactId>flatten-maven-plugin</artifactId>
         <version>1.2.2</version>
         <configuration>
+          <flattenMode>ossrh</flattenMode>
         </configuration>
         <executions>
           <!-- enable flattening -->
