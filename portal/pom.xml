@@ -9,7 +9,6 @@
 		<version>2.3.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>portal-parent-pom</artifactId>
-	<version>${parent.version}</version>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
 	<name>Portal parent POM</name>
 	<description>Parent POM for all QBiC software that depends on a Liferay portal and Vaadin.</description>
