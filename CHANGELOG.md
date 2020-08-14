@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.0 14-08-2020
+
+* Introduce automated GroovyDoc generation 
+
 ## 2.2.5 03-08-2020
 
 * Pin version for flatten-maven-plugin to 1.2.2
