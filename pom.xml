@@ -185,7 +185,7 @@
     </repository>
     <repository>
       <id>qbic-plugins</id>
-      <url>>http://134.2.24.115:8081/repository/maven-releases</url>
+      <url>http://134.2.24.115:8081/repository/maven-releases</url>
     </repository>
   </repositories>
   <distributionManagement>
@@ -193,7 +193,7 @@
       <uniqueVersion>true</uniqueVersion>
       <id>nexus-releases</id>
       <name>QBiC Releases</name>
-      <url>>http://134.2.24.115:8081/repository/maven-releases</url>
+      <url>http://134.2.24.115:8081/repository/maven-releases</url>
     </repository>
     <snapshotRepository>
       <uniqueVersion>false</uniqueVersion>
