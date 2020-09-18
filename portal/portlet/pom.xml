@@ -31,7 +31,7 @@
 			</snapshots>
 			<id>nexus-snapshots</id>
 			<name>QBiC Snapshots</name>
-			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-snapshots</url>
+			<url>http://134.2.24.115:8081//repository/maven-snapshots</url>
 		</repository>
 		<repository>
 			<releases>
@@ -44,7 +44,7 @@
 			</snapshots>
 			<id>nexus-releases</id>
 			<name>QBiC Releases</name>
-			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-releases</url>
+			<url>http://134.2.24.115:8081/repository/maven-releases</url>
 		</repository>
 	</repositories>
 	<dependencyManagement>
