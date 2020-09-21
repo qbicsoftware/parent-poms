@@ -57,11 +57,6 @@
 	</repositories>
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>life.qbic</groupId>
-				<artifactId>portal-utils-lib</artifactId>
-				<version>2.2.0</version>
-			</dependency>
 		<!-- Vaadin offers a bill of materials including all of the vaadin artifacts -->
 		<dependency>
 			<groupId>com.vaadin</groupId>
