@@ -477,7 +477,7 @@
       <plugin>
         <groupId>life.qbic</groupId>
         <artifactId>groovydoc-maven-plugin</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
       </plugin>
     </plugins>
 
@@ -669,7 +669,7 @@
           <plugin>
             <groupId>life.qbic</groupId>
             <artifactId>groovydoc-maven-plugin</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
           </plugin>
         </plugins>
       </reporting>
