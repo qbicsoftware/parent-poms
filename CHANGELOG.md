@@ -1,9 +1,12 @@
 # Changelog
 
-## 2.4.0
+## 3.0.0 22-09-2020
 
-* Updates data-model-lib from 1.9.4 to 1.10.1
-
+* Remove all libraries from the dependency list that implement the
+  parent-poms themselves. This caused a cyclic dependency and needed to
+  be solved. All applications need to define these libraries now
+  explicitly.
+* Use groovydoc-maven plugin 1.0.1
 
 ## 2.3.0 14-08-2020
 
