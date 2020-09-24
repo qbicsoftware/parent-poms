@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.0.0 22-09-2020
+
+* Remove all libraries from the dependency list that implement the
+  parent-poms themselves. This caused a cyclic dependency and needed to
+  be solved. All applications need to define these libraries now
+  explicitly.
+* Add GroovyDoc generation
+* Use new Sonatype Nexus instance
+
 ## 2.4.0
 
 * Updates data-model-lib from 1.9.4 to 1.10.1
