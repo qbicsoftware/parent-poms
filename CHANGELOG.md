@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.0 2020-09-24
+
+* Define dependency for mysql java connector (8.0.21)
+
 ## 3.0.0 22-09-2020
 
 * Remove all libraries from the dependency list that implement the
