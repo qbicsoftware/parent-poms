@@ -17,6 +17,7 @@
 # Maven
 log/
 target/
+.flattened-pom.xml
 
 # pip, python
 __pycache__
