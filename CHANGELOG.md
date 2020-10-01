@@ -18,6 +18,11 @@
 * Add GroovyDoc generation
 * Use new Sonatype Nexus instance
 
+## 2.4.0
+
+* Updates data-model-lib from 1.9.4 to 1.10.1
+
+
 ## 2.3.0 14-08-2020
 
 * Introduce automated GroovyDoc generation 
