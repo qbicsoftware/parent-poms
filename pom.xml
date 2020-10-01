@@ -169,7 +169,7 @@
     </repository>
     <repository>
       <id>qbic-plugins</id>
-      <url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-releases</url>
+      <url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-releases</url>
     </repository>
   </repositories>
   <distributionManagement>
@@ -177,13 +177,13 @@
       <uniqueVersion>true</uniqueVersion>
       <id>nexus-releases</id>
       <name>QBiC Releases</name>
-      <url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-releases</url>
+      <url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-releases</url>
     </repository>
     <snapshotRepository>
       <uniqueVersion>false</uniqueVersion>
       <id>nexus-snapshots</id>
       <name>QBiC Snapshots</name>
-      <url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-snapshots</url>
+      <url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-snapshots</url>
     </snapshotRepository>
   </distributionManagement>
   <pluginRepositories>
@@ -195,7 +195,7 @@
     </pluginRepository>
     <pluginRepository>
       <id>qbic-plugins-2</id>
-        <url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-releases</url>
+        <url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-releases</url>
     </pluginRepository>
   </pluginRepositories>
   <build>
