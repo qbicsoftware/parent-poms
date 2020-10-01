@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>life.qbic</groupId>
 		<artifactId>portal-parent-pom</artifactId>
-		<version>3.1.0-SNAPSHOT</version>
+		<version>3.1.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>portlet-parent-pom</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
@@ -31,7 +31,7 @@
 			</snapshots>
 			<id>nexus-snapshots</id>
 			<name>QBiC Snapshots</name>
-			<url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-snapshots</url>
+			<url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-snapshots</url>
 		</repository>
 		<repository>
 			<releases>
@@ -44,7 +44,7 @@
 			</snapshots>
 			<id>nexus-releases</id>
 			<name>QBiC Releases</name>
-			<url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-releases</url>
+			<url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-releases</url>
 		</repository>
 	</repositories>
 	<dependencyManagement>

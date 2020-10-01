@@ -5,7 +5,7 @@
 	<groupId>life.qbic</groupId>
 	<artifactId>parent-pom</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
-	<version>3.1.0-SNAPSHOT</version>
+	<version>3.1.1-SNAPSHOT</version>
 	<name>Parent POM</name>
 	<description>Parent POM for all QBiC software</description>
 	<packaging>pom</packaging>
@@ -173,7 +173,7 @@
     </repository>
     <repository>
       <id>qbic-plugins</id>
-      <url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-releases</url>
+      <url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-releases</url>
     </repository>
   </repositories>
   <distributionManagement>
@@ -181,13 +181,13 @@
       <uniqueVersion>true</uniqueVersion>
       <id>nexus-releases</id>
       <name>QBiC Releases</name>
-      <url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-releases</url>
+      <url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-releases</url>
     </repository>
     <snapshotRepository>
       <uniqueVersion>false</uniqueVersion>
       <id>nexus-snapshots</id>
       <name>QBiC Snapshots</name>
-      <url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-snapshots</url>
+      <url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-snapshots</url>
     </snapshotRepository>
   </distributionManagement>
   <pluginRepositories>
@@ -199,7 +199,7 @@
     </pluginRepository>
     <pluginRepository>
       <id>qbic-plugins-2</id>
-        <url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-releases</url>
+        <url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-releases</url>
     </pluginRepository>
   </pluginRepositories>
   <build>

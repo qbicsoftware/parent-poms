@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.1.1 2020-10-01
+
+* Update URL for QBiC's Maven repository ->
+  https://qbic-repo.qbic.uni-tuebingen.de
+
 ## 3.1.0 2020-09-24
 
 * Define dependency for mysql java connector (8.0.21)
