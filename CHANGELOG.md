@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.1.3 (2020-10-05)
+* As the most artefacts are hosted on Maven central
+we can speed up the build process when telling
+Maven to start dependency resolvement against Maven
+central first.
+
 ## 3.1.2 2020-10-05
 
 * Increase Java memory during vaadin compilation to `-XmX1024m`
