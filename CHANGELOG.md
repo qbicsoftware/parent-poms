@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.2 2020-10-05
+
+* Increase Java memory during vaadin compilation to `-XmX1024m`
+  
 ## 3.1.1 2020-10-01
 
 * Update URL for QBiC's Maven repository ->
