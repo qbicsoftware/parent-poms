@@ -14,36 +14,6 @@
 	<description>Parent POM for all QBiC command-line interface (CLI) tools.</description>
 	<packaging>pom</packaging>
 
-	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
-	<repositories>
-		<repository>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>fail</checksumPolicy>
-			</snapshots>
-			<id>nexus-snapshots</id>
-			<name>QBiC Snapshots</name>
-			<url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-snapshots</url>
-		</repository>
-		<repository>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>fail</checksumPolicy>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>nexus-releases</id>
-			<name>QBiC Releases</name>
-			<url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-releases</url>
-		</repository>
-	</repositories>
-
 	<dependencies>
 		<dependency>
 			<groupId>info.picocli</groupId>
