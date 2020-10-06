@@ -1,5 +1,9 @@
 # Changelog
 
+# 3.1.4 (2020-10-06)
+* Removes unused flatten Maven plugin which will now not produce flatten
+  poms during build anymore
+
 ## 3.1.3 (2020-10-05)
 * As the most artefacts are hosted on Maven central
 we can speed up the build process when telling
