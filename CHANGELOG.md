@@ -1,5 +1,28 @@
 # Changelog
 
+# 3.1.4 (2020-10-06)
+* Removes unused flatten Maven plugin which will now not produce flatten
+  poms during build anymore
+
+## 3.1.3 (2020-10-05)
+* As the most artefacts are hosted on Maven central
+we can speed up the build process when telling
+Maven to start dependency resolvement against Maven
+central first.
+
+## 3.1.2 2020-10-05
+
+* Increase Java memory during vaadin compilation to `-XmX1024m`
+  
+## 3.1.1 2020-10-01
+
+* Update URL for QBiC's Maven repository ->
+  https://qbic-repo.qbic.uni-tuebingen.de
+
+## 3.1.0 2020-09-24
+
+* Define dependency for mysql java connector (8.0.21)
+
 ## 3.0.0 22-09-2020
 
 * Remove all libraries from the dependency list that implement the

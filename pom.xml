@@ -5,7 +5,7 @@
 	<groupId>life.qbic</groupId>
 	<artifactId>parent-pom</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
-	<version>3.1.0-SNAPSHOT</version>
+	<version>3.1.4</version>
 	<name>Parent POM</name>
 	<description>Parent POM for all QBiC software</description>
 	<packaging>pom</packaging>
@@ -157,6 +157,19 @@
   </dependencies>
   <repositories>
     <repository>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>fail</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>maven-central</id>
+      <name>Maven central</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+    <repository>
       <id>liferay-releases</id>
       <url>
         https://repository.liferay.com/nexus/content/repositories/liferay-public-releases/com/liferay/portal/
@@ -173,7 +186,7 @@
     </repository>
     <repository>
       <id>qbic-plugins</id>
-      <url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-releases</url>
+      <url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-releases</url>
     </repository>
   </repositories>
   <distributionManagement>
@@ -181,16 +194,22 @@
       <uniqueVersion>true</uniqueVersion>
       <id>nexus-releases</id>
       <name>QBiC Releases</name>
-      <url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-releases</url>
+      <url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-releases</url>
     </repository>
     <snapshotRepository>
       <uniqueVersion>false</uniqueVersion>
       <id>nexus-snapshots</id>
       <name>QBiC Snapshots</name>
-      <url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-snapshots</url>
+      <url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-snapshots</url>
     </snapshotRepository>
   </distributionManagement>
   <pluginRepositories>
+    <pluginRepository>
+      <id>maven-central-plugins</id>
+      <url>
+        https://repo.maven.apache.org/maven2
+      </url>
+    </pluginRepository>
     <pluginRepository>
       <id>liferay-releases-plugins</id>
       <url>
@@ -199,7 +218,7 @@
     </pluginRepository>
     <pluginRepository>
       <id>qbic-plugins-2</id>
-        <url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-releases</url>
+        <url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-releases</url>
     </pluginRepository>
   </pluginRepositories>
   <build>
@@ -435,33 +454,6 @@
                 </rule>
               </rules>
             </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <!-- Flattens the child poms to include the parent version for proper deployment-->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>flatten-maven-plugin</artifactId>
-        <version>1.2.2</version>
-        <configuration>
-          <flattenMode>ossrh</flattenMode>
-        </configuration>
-        <executions>
-          <!-- enable flattening -->
-          <execution>
-            <id>flatten</id>
-            <phase>process-resources</phase>
-            <goals>
-              <goal>flatten</goal>
-            </goals>
-          </execution>
-          <!-- ensure proper cleanup -->
-          <execution>
-            <id>flatten.clean</id>
-            <phase>clean</phase>
-            <goals>
-              <goal>clean</goal>
-            </goals>
           </execution>
         </executions>
       </plugin>

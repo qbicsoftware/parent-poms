@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>life.qbic</groupId>
 		<artifactId>parent-pom</artifactId>
-		<version>3.1.0-SNAPSHOT</version>
+		<version>3.1.4</version>
 	</parent>
 	<artifactId>cli-parent-pom</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
@@ -18,6 +18,19 @@
 	<repositories>
 		<repository>
 			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>maven-central</id>
+			<name>Maven central</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+		<repository>
+			<releases>
 				<enabled>false</enabled>
 			</releases>
 			<snapshots>
@@ -27,7 +40,7 @@
 			</snapshots>
 			<id>nexus-snapshots</id>
 			<name>QBiC Snapshots</name>
-			<url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-snapshots</url>
+			<url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-snapshots</url>
 		</repository>
 		<repository>
 			<releases>
@@ -40,7 +53,7 @@
 			</snapshots>
 			<id>nexus-releases</id>
 			<name>QBiC Releases</name>
-			<url>http://qbic-repo.qbic.uni-tuebingen.de:8081/repository/maven-releases</url>
+			<url>https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-releases</url>
 		</repository>
 	</repositories>
 
