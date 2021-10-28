@@ -1,5 +1,9 @@
 # Changelog
 
+# 3.1.5 (2021-10-28)
+* Update Vaadin 8.9.2 in portal-parent-pom to 8.14.0 because of security issue (see CVE-2021-37714)
+* Update Vaadin 8.9.2 in portlet-parent-pom to 8.14.0 because of security issue (see CVE-2021-37714)
+
 # 3.1.4 (2020-10-06)
 * Removes unused flatten Maven plugin which will now not produce flatten
   poms during build anymore
