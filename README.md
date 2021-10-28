@@ -1,5 +1,4 @@
 # QBiC Parent POMs
-[![Build Status](https://travis-ci.com/qbicsoftware/parent-poms.svg?branch=development)](https://travis-ci.com/qbicsoftware/parent-poms)
 
 This repository contains no code. It only contains the parent project object model (POM) files we use across all of our software.
 
@@ -42,7 +41,7 @@ At this point, the `HEAD` of the `master` and `development` branches are identic
 | `portal/pom.xml`         | `project/version = 1.2.0-SNAPSHOT`<br/>`project/parent/version = 1.2.0-SNAPSHOT` | `project/version = 1.2.0`<br/>`project/parent/version = 1.2.0`
 | `portal/portlet/pom.xml` | `project/version = 1.2.0-SNAPSHOT`<br/>`project/parent/version = 1.2.0-SNAPSHOT` | `project/version = 1.2.0`<br/>`project/parent/version = 1.2.0`
 
-If you want to test your changes before pushing the code, take a look at what `.travis.yml` does. Here is a simplified version that you can run on your computer to _install_ these POMs in your local [Maven][maven] repository:
+Here is a simplified version that you can run on your computer to _install_ these POMs in your local [Maven][maven] repository:
 ```sh
 mvn install && mvn --file cli/pom.xml install && mvn --file portal/pom.xml install && mvn --file portal/portlet/pom.xml install
 ```
@@ -51,9 +50,7 @@ Once everything looks fine, stage, commit and push your changes:
   - `git add .`
   - `git commit -m "Release version 1.2.0"`
   - `git push`
-
-Monitor the build on [Travis][travis] and make sure it all builds properly.
-
+  
 Switch to the `development` branch (`git checkout development`) and _bump_ the snapshot version:
 
 | File                     | Before (snapshot version)                                                        | After (release version)                      |
@@ -69,4 +66,3 @@ And, again, stage, commit and push your changes (remember that you are on the `d
   - `git push`
 
 [maven]: https://maven.apache.org/
-[travis]: https://travis-ci.com
