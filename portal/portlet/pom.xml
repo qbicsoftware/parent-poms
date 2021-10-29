@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>life.qbic</groupId>
 		<artifactId>portal-parent-pom</artifactId>
-		<version>3.1.4</version>
+		<version>3.1.5</version>
 	</parent>
 	<artifactId>portlet-parent-pom</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
@@ -13,8 +13,8 @@
 	<description>Parent POM for all QBiC software that depends on a Liferay portal and Vaadin.</description>
 	<packaging>pom</packaging>
 	<properties>
-		<vaadin.version>8.9.2</vaadin.version>
-		<vaadin.plugin.version>8.9.2</vaadin.plugin.version>
+		<vaadin.version>8.14.0</vaadin.version>
+		<vaadin.plugin.version>8.14.0</vaadin.plugin.version>
 		<jetty.plugin.version>9.4.10.v20180503</jetty.plugin.version>
 		<jetty.scanIntervalSeconds>2</jetty.scanIntervalSeconds>
 	</properties>
